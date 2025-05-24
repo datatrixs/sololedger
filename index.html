@@ -1,74 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verza — Smarter Contracts for Creators</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Verza — Your AI Financial Agent: From Deal to Deposit for Creators" />
+    <title>Verza</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-black text-white font-sans leading-relaxed tracking-tight">
+<body class="bg-black text-white">
+    <div class="min-h-screen flex flex-col justify-between">
+        <header class="px-6 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tight">Verza</h1>
+            <button class="bg-white text-black px-4 py-2 rounded-xl font-semibold text-sm hover:bg-gray-200 transition">Join Waitlist</button>
+        </header>
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-semibold max-w-2xl mb-4 text-white">Smarter Contracts for Creators</h1>
-    <p class="text-gray-400 text-lg max-w-xl mb-8">
-      Verza helps you understand, negotiate, and manage contracts — so you can protect your income and stay focused on your craft.
-    </p>
-    <a href="#waitlist" class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
-      Join the Waitlist
-    </a>
-  </section>
+        <main class="flex flex-col items-center justify-center text-center px-4 py-24">
+            <h2 class="text-4xl md:text-6xl font-bold max-w-4xl leading-tight">
+                Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for Creators
+            </h2>
+            <p class="mt-6 text-lg max-w-2xl text-gray-300">
+                Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, and track your deals, ensuring you get paid and can focus on creating.
+            </p>
+            <button class="mt-8 bg-white text-black px-6 py-3 rounded-full font-semibold text-lg hover:bg-gray-200 transition">
+                Get Early Access
+            </button>
+        </main>
 
-  <!-- Divider -->
-  <div class="border-t border-gray-800 my-10 w-11/12 mx-auto"></div>
-
-  <!-- What We're Building -->
-  <section class="py-16 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-medium mb-6 text-white">Where the Money Starts — Your Deal</h2>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-4">
-      You’ve worked hard to land the deal. Verza makes sure the contract actually works in your favor.
-    </p>
-    <p class="text-gray-500 text-base max-w-2xl mx-auto">
-      Upload any contract — we’ll translate the legalese, flag hidden clauses, and help you negotiate better terms. 
-    </p>
-  </section>
-
-  <!-- Features -->
-  <section class="bg-[#111111] py-20 px-6">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-left">
-      <div>
-        <h3 class="text-white text-xl font-medium mb-2">Redlines, decoded</h3>
-        <p class="text-gray-400">Verza highlights risky terms, hidden exclusivity, and vague IP clauses — before you sign.</p>
-      </div>
-      <div>
-        <h3 class="text-white text-xl font-medium mb-2">Legal made simple</h3>
-        <p class="text-gray-400">Everything is translated into plain English so you know exactly what you're agreeing to.</p>
-      </div>
-      <div>
-        <h3 class="text-white text-xl font-medium mb-2">Negotiation ready</h3>
-        <p class="text-gray-400">Get smart suggestions on how to push back — from payment timing to scope and ownership.</p>
-      </div>
+        <footer class="px-6 py-6 text-center text-gray-500 text-sm">
+            &copy; 2025 Verza, Inc. All rights reserved.
+        </footer>
     </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section id="waitlist" class="py-24 px-6 text-center">
-    <h2 class="text-3xl font-semibold mb-4 text-white">Now onboarding creators & freelancers</h2>
-    <p class="text-gray-400 mb-6">If you're a designer, writer, developer, or influencer — Verza is for you.</p>
-    <form class="flex flex-col md:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
-      <input type="email" placeholder="Your email" class="w-full md:w-auto px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-      <button class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-lg font-medium transition">
-        Request Access
-      </button>
-    </form>
-    <p class="text-sm text-gray-500 mt-4">No spam. Just smarter contracts.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-12 text-center text-gray-600 text-sm">
-    <p>© 2025 Verza</p>
-    <p class="mt-1">Built for creators. Starting with your deal.</p>
-  </footer>
-
 </body>
 </html>
