@@ -8,35 +8,388 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+        .gradient-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .feature-card {
+            transition: transform 0.3s ease;
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        .testimonial-card {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #10B981;
+        }
+        .error-message {
+            display: none;
+            text-align: center;
+            color: #EF4444;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
-    <div class="min-h-screen flex flex-col justify-between">
-        <header class="px-6 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tight">Verza</h1>
-            <button class="bg-white text-black px-4 py-2 rounded-xl font-semibold text-sm hover:bg-gray-200 transition">Join Waitlist</button>
+    <div class="min-h-screen flex flex-col">
+        <header class="px-6 py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black/50">
+            <h1 class="text-2xl font-bold tracking-tight gradient-text">Verza</h1>
+            <!-- <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-300 hover:text-white transition">Features</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-white transition">Testimonials</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
+            </nav> -->
+            <button class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">Join Waitlist</button>
         </header>
 
-        <main class="flex flex-col items-center justify-center text-center px-4 py-24">
-            <h2 class="text-4xl md:text-6xl font-bold max-w-4xl leading-tight">
-                Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for Creators
-            </h2>
-            <p class="mt-6 text-lg max-w-2xl text-gray-300">
-                Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, and track your deals, ensuring you get paid and can focus on creating.
-            </p>
-            <button class="mt-8 bg-white text-black px-6 py-3 rounded-full font-semibold text-lg hover:bg-gray-200 transition">
-                Get Early Access
-            </button>
+        <main>
+            <!-- Hero Section -->
+            <section class="gradient-bg py-24 px-4">
+                <div class="max-w-6xl mx-auto text-center relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight">
+                        Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for <span class="gradient-text">Creators</span>
+                    </h2>
+                    <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-300">
+                        Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, and track your deals, ensuring you get paid and can focus on creating.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                            Get Early Access
+                        </button>
+                        <!-- <button class="gradient-border bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-900 transition">
+                            Watch Demo
+                        </button> -->
+                    </div>
+                    <div class="mt-12 animate-float">
+                        <img src="assets/dashboard-screen.png" alt="Platform Preview" class="rounded-xl shadow-2xl mx-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+                <div class="max-w-6xl mx-auto">
+                    <h3 class="text-3xl font-bold text-center mb-16">Why Creators Choose <span class="gradient-text">Verza</span></h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Smart Contract Analysis</h4>
+                            <p class="text-gray-400">AI-powered contract review that highlights key terms and potential issues.</p>
+                        </div>
+                        <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Payment Tracking</h4>
+                            <p class="text-gray-400">Automated payment monitoring and reminders to ensure you get paid on time.</p>
+                        </div>
+                        <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Instant Insights</h4>
+                            <p class="text-gray-400">Real-time analytics and reporting to help you make better business decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <!-- <section id="testimonials" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
+                <div class="max-w-6xl mx-auto">
+                    <h3 class="text-3xl font-bold text-center mb-16">Trusted by <span class="gradient-text">Creators</span></h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="testimonial-card p-8 rounded-xl">
+                            <p class="text-gray-300 mb-6">"Verza has completely transformed how I handle my business deals. The AI insights are incredibly accurate and save me hours of work."</p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/50x50" alt="Sarah J." class="rounded-full mr-4">
+                                <div>
+                                    <h5 class="font-semibold">Sarah J.</h5>
+                                    <p class="text-gray-400">Content Creator</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card p-8 rounded-xl">
+                            <p class="text-gray-300 mb-6">"The payment tracking feature alone is worth it. I never miss a payment deadline anymore, and my clients appreciate the professional follow-ups."</p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/50x50" alt="Michael T." class="rounded-full mr-4">
+                                <div>
+                                    <h5 class="font-semibold">Michael T.</h5>
+                                    <p class="text-gray-400">Digital Artist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <!-- CTA Section -->
+            <section class="py-24 px-4 cta-gradient">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h3 class="text-3xl font-bold mb-6">Ready to Transform Your Creator Business?</h3>
+                    <p class="text-gray-300 mb-8">Join the waitlist today and be among the first to experience the future of creator finance.</p>
+                    <button class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                        Join Waitlist Now
+                    </button>
+                </div>
+            </section>
         </main>
 
-        <footer class="px-6 py-6 text-center text-gray-500 text-sm">
-            &copy; 2025 Verza, Inc. All rights reserved.
+        <!-- Waitlist Modal -->
+        <div id="waitlistModal" class="modal">
+            <div class="modal-content">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold gradient-text">Join the Waitlist</h3>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <form id="waitlistForm" action="https://formspree.io/f/mkgradwv" method="POST">
+                    <div class="space-y-4">
+                        <div>
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+                        </div>
+                        <div>
+                            <select name="creator_type" class="form-input" required>
+                                <option value="" disabled selected>What type of creator are you?</option>
+                                <option value="content">Content Creator</option>
+                                <option value="artist">Digital Artist</option>
+                                <option value="writer">Writer</option>
+                                <option value="developer">Developer</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea name="message" class="form-input" rows="3" placeholder="Tell us about your needs (optional)"></textarea>
+                        </div>
+                        <div class="success-message" id="successMessage">
+                            Thanks for joining! We'll be in touch soon.
+                        </div>
+                        <div class="error-message" id="errorMessage">
+                            Something went wrong. Please try again.
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition">
+                            Join Waitlist
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="bg-black border-t border-gray-800 py-12 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 gradient-text">Verza</h4>
+                        <p class="text-gray-400">Empowering creators with AI-powered financial management.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Product</h5>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Features</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Roadmap</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Company</h5>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">About</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Legal</h5>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+                    &copy; 2025 Verza, Inc. All rights reserved.
+                </div>
+            </div>
         </footer>
     </div>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('waitlistModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('waitlistModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click event listeners to all waitlist buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Waitlist') || button.textContent.includes('Get Early Access')) {
+                button.addEventListener('click', openModal);
+            }
+        });
+
+        // Form submission handling
+        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    form.reset();
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    setTimeout(() => {
+                        closeModal();
+                        successMessage.style.display = 'none';
+                    }, 2000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Join Waitlist';
+            }
+        });
+    </script>
 </body>
 </html>
