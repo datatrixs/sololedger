@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Verza — Your AI Financial Agent: From Deal to Deposit for Creators" />
-    <title>Verza</title>
+    <meta name="description" content="Verza — Your AI Financial Agent: From Deal to Deposit for Creators. Understand, negotiate, track, and manage your finances." />
+    <title>Verza - AI Financial Agent for Creators</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -29,13 +30,15 @@
                         radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
-        .feature-card {
-            transition: transform 0.3s ease;
+        .feature-card, .testimonial-card, .step-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: linear-gradient(145deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for definition */
         }
-        .feature-card:hover {
+        .feature-card:hover, .testimonial-card:hover, .step-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         .animate-float {
             animation: float 6s ease-in-out infinite;
@@ -64,10 +67,6 @@
             border-radius: inherit;
             z-index: -1;
         }
-        .testimonial-card {
-            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
-            backdrop-filter: blur(10px);
-        }
         .cta-gradient {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
         }
@@ -83,6 +82,8 @@
             z-index: 1000;
             opacity: 0;
             transition: opacity 0.3s ease;
+            align-items: center; /* Center modal content vertically */
+            justify-content: center; /* Center modal content horizontally */
         }
         .modal.active {
             display: flex;
@@ -96,7 +97,7 @@
             padding: 2rem;
             width: 90%;
             max-width: 500px;
-            margin: auto;
+            margin: auto; /* Ensure it's centered */
             transform: translateY(-20px);
             transition: transform 0.3s ease;
         }
@@ -124,167 +125,396 @@
             display: none;
             text-align: center;
             color: #10B981;
+            margin-top: 1rem;
         }
         .error-message {
             display: none;
             text-align: center;
             color: #EF4444;
+            margin-top: 1rem;
+        }
+        /* Mobile navigation toggle */
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            z-index: 50; /* Ensure it's above other elements */
+        }
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            z-index: 40; /* Below hamburger but above content */
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-nav.active {
+            transform: translateX(0);
+            display: flex;
+        }
+        .mobile-nav a {
+            font-size: 1.5rem;
+            color: white;
+            transition: color 0.3s;
+        }
+        .mobile-nav a:hover {
+            color: #6366f1;
+        }
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+            .mobile-nav {
+                display: none !important; /* Hide on desktop */
+            }
         }
     </style>
 </head>
 <body class="bg-black text-white">
     <div class="min-h-screen flex flex-col">
-        <header class="px-6 py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black/50">
+        <header class="px-6 py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
             <h1 class="text-2xl font-bold tracking-tight gradient-text">Verza</h1>
-            <!-- <nav class="hidden md:flex space-x-8">
+            <nav class="hidden md:flex space-x-8">
                 <a href="#features" class="text-gray-300 hover:text-white transition">Features</a>
-                <a href="#testimonials" class="text-gray-300 hover:text-white transition">Testimonials</a>
+                <a href="#how-it-works" class="text-gray-300 hover:text-white transition">How it Works</a>
                 <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
-            </nav> -->
-            <button class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">Join Waitlist</button>
+                <a href="#testimonials" class="text-gray-300 hover:text-white transition">Testimonials</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition">About Us</a>
+            </nav>
+            <a id="headerCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                Get Started Free
+            </a>
+            <div class="md:hidden hamburger" onclick="toggleMobileMenu()">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </div>
         </header>
 
-        <main>
-            <!-- Hero Section -->
+        <div id="mobileMenu" class="mobile-nav md:hidden">
+            <button class="absolute top-6 right-6 text-white text-3xl" onclick="toggleMobileMenu()">
+                &times;
+            </button>
+            <a href="#features" class="block py-4" onclick="toggleMobileMenu()">Features</a>
+            <a href="#how-it-works" class="block py-4" onclick="toggleMobileMenu()">How it Works</a>
+            <a href="#pricing" class="block py-4" onclick="toggleMobileMenu()">Pricing</a>
+            <a href="#testimonials" class="block py-4" onclick="toggleMobileMenu()">Testimonials</a>
+            <a href="#about" class="block py-4" onclick="toggleMobileMenu()">About Us</a>
+            <a id="mobileCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition mt-8">
+                Get Started Free
+            </a>
+        </div>
+
+        <main class="flex-grow">
             <section class="gradient-bg py-24 px-4">
                 <div class="max-w-6xl mx-auto text-center relative z-10">
                     <h2 class="text-4xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight">
                         Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for <span class="gradient-text">Creators</span>
                     </h2>
                     <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-300">
-                        Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, and track your deals, ensuring you get paid and can focus on creating.
+                        Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, track your deals, and manage your finances, ensuring you get paid and can focus on creating.
                     </p>
                     <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
-                            Get Early Access
-                        </button>
-                        <!-- <button class="gradient-border bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-900 transition">
-                            Watch Demo
-                        </button> -->
+                        <a id="heroCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                            Get Started Free
+                        </a>
+                        <a href="#how-it-works" class="gradient-border bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-900 transition flex items-center justify-center">
+                            <i class="fas fa-play-circle mr-2"></i> How it Works
+                        </a>
                     </div>
                     <div class="mt-12 animate-float">
-                        <img src="assets/dashboard-screen.png" alt="Platform Preview" class="rounded-xl shadow-2xl mx-auto">
+                        <img src="assets/dashboard-screen.png" alt="Verza Platform Preview" class="rounded-xl shadow-2xl mx-auto border border-gray-700">
                     </div>
                 </div>
             </section>
 
-            <!-- Features Section -->
             <section id="features" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-6xl mx-auto">
-                    <h3 class="text-3xl font-bold text-center mb-16">Why Creators Choose <span class="gradient-text">Verza</span></h3>
-                    <div class="grid md:grid-cols-3 gap-8">
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">Unlock Your Full Potential with <span class="gradient-text">Verza</span></h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="feature-card p-8 rounded-xl">
-                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-file-contract"></i>
                             </div>
-                            <h4 class="text-xl font-semibold mb-2">Smart Contract Analysis</h4>
-                            <p class="text-gray-400">AI-powered contract review that highlights key terms and potential issues.</p>
+                            <h4 class="text-xl font-semibold mb-2">AI Contract Analysis</h4>
+                            <p class="text-gray-400">Upload any contract to instantly flag redlines, hidden clauses, and key terms. Get clear, plain English translations of complex legalese.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl">
-                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-handshake"></i>
                             </div>
-                            <h4 class="text-xl font-semibold mb-2">Payment Tracking</h4>
-                            <p class="text-gray-400">Automated payment monitoring and reminders to ensure you get paid on time.</p>
+                            <h4 class="text-xl font-semibold mb-2">Negotiation Suggestions</h4>
+                            <p class="text-gray-400">Receive AI-powered recommendations for better payment terms, exclusivity clauses, IP rights, and other critical contract elements.</p>
+                        </div>
+                        <!-- <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Contract Version Control</h4>
+                            <p class="text-gray-400">Save and compare different versions of your contracts over time, ensuring you always have the latest and best terms.</p>
+                        </div> -->
+
+                        <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Automated Income Tracking</h4>
+                            <p class="text-gray-400">Seamlessly track all your income by scanning contracts and linking payment sources, giving you a real-time financial overview.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl">
-                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-file-invoice-dollar"></i>
                             </div>
-                            <h4 class="text-xl font-semibold mb-2">Instant Insights</h4>
-                            <p class="text-gray-400">Real-time analytics and reporting to help you make better business decisions.</p>
+                            <h4 class="text-xl font-semibold mb-2">Smart Invoicing & Payments</h4>
+                            <p class="text-gray-400">Create professional invoices, send automated payment reminders, and track the status of all your outstanding payments.</p>
+                        </div>
+                        <!-- <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Tax Planning & Reminders</h4>
+                            <p class="text-gray-400">Automatically estimate your quarterly taxes, set payment reminders, and prepare for 1099s with ease, avoiding last-minute stress.</p>
+                        </div> -->
+
+                        <!-- <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-bank"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Creator Banking Integration</h4>
+                            <p class="text-gray-400">Keep your funds within Verza for streamlined financial management, direct deposit, and easy categorization of income and expenses.</p>
+                        </div> -->
+                        <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Financial Insights Dashboard</h4>
+                            <p class="text-gray-400">Access real-time analytics, visualize your cash flow, and gain actionable insights to make informed business decisions.</p>
+                        </div>
+                        <div class="feature-card p-8 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-2">Secure Data Management</h4>
+                            <p class="text-gray-400">Your financial and contractual data is protected with industry-leading security protocols and encryption.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Testimonials Section -->
-            <!-- <section id="testimonials" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
+            <section id="how-it-works" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
+                <div class="max-w-6xl mx-auto text-center">
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">How <span class="gradient-text">Verza</span> Simplifies Your Business</h3>
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div class="step-card p-8 rounded-xl flex flex-col items-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">1</div>
+                            <h4 class="text-2xl font-semibold mb-3">Upload Your Deal</h4>
+                            <p class="text-gray-400">Simply upload or paste your contract text. Verza's AI instantly gets to work, analyzing every detail.</p>
+                        </div>
+                        <div class="step-card p-8 rounded-xl flex flex-col items-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">2</div>
+                            <h4 class="text-2xl font-semibold mb-3">Get Instant Insights</h4>
+                            <p class="text-gray-400">Receive clear explanations of legalese, flagged redlines, and smart suggestions for negotiation terms.</p>
+                        </div>
+                        <div class="step-card p-8 rounded-xl flex flex-col items-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">3</div>
+                            <h4 class="text-2xl font-semibold mb-3">Manage & Grow</h4>
+                            <p class="text-gray-400">Track income, send invoices, plan taxes, and manage your funds all in one place, freeing you to create.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pricing" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+                <div class="max-w-6xl mx-auto text-center">
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">Simple Pricing for Every <span class="gradient-text">Creator</span></h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="feature-card p-8 rounded-xl flex flex-col">
+                            <h4 class="text-2xl font-semibold mb-4">Free</h4>
+                            <p class="text-gray-400 mb-6">Perfect for new creators getting started.</p>
+                            <div class="text-5xl font-bold mb-6">
+                                $0<span class="text-xl text-gray-400">/month</span>
+                            </div>
+                            <ul class="text-left text-gray-300 space-y-3 flex-grow">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Basic Contract Insights</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Limited Contract Storage</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Essential Income Tracking</li>
+                            </ul>
+                            <a id="pricingFreeCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="mt-8 w-full bg-gray-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition text-center">
+                                Get Started Free
+                            </a>
+                        </div>
+
+                        <div class="feature-card p-8 rounded-xl flex flex-col border border-indigo-500">
+                            <h4 class="text-2xl font-semibold mb-4 gradient-text">Pro</h4>
+                            <p class="text-gray-400 mb-6">For growing creators ready to scale.</p>
+                            <div class="text-5xl font-bold mb-6">
+                                $10<span class="text-xl text-gray-400">/month</span>
+                            </div>
+                            <ul class="text-left text-gray-300 space-y-3 flex-grow">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Unlimited AI Contract Analysis</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Negotiation Recommendations</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Unlimited Contract Storage</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Smart Invoicing & Payment Tracking</li>
+                                <!-- <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Tax Planning & Reminders</li> -->
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Basic Banking Integration (coming soon)</li>
+                            </ul>
+                            <a id="pricingProCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="mt-8 w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition text-center">
+                                Get Pro Access
+                            </a>
+                        </div>
+
+                        <div class="feature-card p-8 rounded-xl flex flex-col">
+                            <h4 class="text-2xl font-semibold mb-4">Team</h4>
+                            <p class="text-gray-400 mb-6">For creator managers and agencies.</p>
+                            <div class="text-5xl font-bold mb-6">
+                                Custom<span class="text-xl text-gray-400">/month</span>
+                            </div>
+                            <ul class="text-left text-gray-300 space-y-3 flex-grow">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> All Pro Features</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Multiple User Accounts</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Centralized Client Management</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Advanced Reporting</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Priority Support</li>
+                            </ul>
+                            <button id="pricingTeamCta" class="mt-8 w-full bg-gray-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition">
+                                Contact Sales
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-16 text-gray-400">
+                        <h5 class="text-xl font-semibold mb-4">Premium Add-ons:</h5>
+                        <ul class="list-disc list-inside space-y-2 max-w-md mx-auto">
+                            <li>Verified Attorney Review</li>
+                            <li>Premium Contract Templates</li>
+                            <li>Advanced Audit Trails</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="testimonials" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
                 <div class="max-w-6xl mx-auto">
-                    <h3 class="text-3xl font-bold text-center mb-16">Trusted by <span class="gradient-text">Creators</span></h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">What <span class="gradient-text">Creators</span> Are Saying</h3>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="testimonial-card p-8 rounded-xl">
-                            <p class="text-gray-300 mb-6">"Verza has completely transformed how I handle my business deals. The AI insights are incredibly accurate and save me hours of work."</p>
+                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"Verza has completely transformed how I handle my business deals. The AI insights are incredibly accurate, saving me hours of work and giving me peace of mind."</p>
                             <div class="flex items-center">
-                                <img src="https://placehold.co/50x50" alt="Sarah J." class="rounded-full mr-4">
+                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=SJ" alt="Sarah J." class="rounded-full mr-4 border border-gray-600">
                                 <div>
-                                    <h5 class="font-semibold">Sarah J.</h5>
-                                    <p class="text-gray-400">Content Creator</p>
+                                    <h5 class="font-semibold text-white">Sarah J.</h5>
+                                    <p class="text-gray-400 text-sm">Content Creator & YouTuber</p>
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-card p-8 rounded-xl">
-                            <p class="text-gray-300 mb-6">"The payment tracking feature alone is worth it. I never miss a payment deadline anymore, and my clients appreciate the professional follow-ups."</p>
+                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"The payment tracking feature alone is worth it. I never miss a payment deadline anymore, and my clients appreciate the professional, automated follow-ups. A game-changer!"</p>
                             <div class="flex items-center">
-                                <img src="https://placehold.co/50x50" alt="Michael T." class="rounded-full mr-4">
+                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=MT" alt="Michael T." class="rounded-full mr-4 border border-gray-600">
                                 <div>
-                                    <h5 class="font-semibold">Michael T.</h5>
-                                    <p class="text-gray-400">Digital Artist</p>
+                                    <h5 class="font-semibold text-white">Michael T.</h5>
+                                    <p class="text-gray-400 text-sm">Digital Artist & Freelancer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card p-8 rounded-xl">
+                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"Finally, a tool that understands the unique financial needs of creators. From contracts to taxes, Verza keeps everything organized and stress-free."</p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=AK" alt="Alex K." class="rounded-full mr-4 border border-gray-600">
+                                <div>
+                                    <h5 class="font-semibold text-white">Alex K.</h5>
+                                    <p class="text-gray-400 text-sm">Musician & Producer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card p-8 rounded-xl">
+                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"The tax planning features are a lifesaver! I used to dread tax season, but Verza makes it so much easier to estimate and prepare. Highly recommend."</p>
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=LM" alt="Lisa M." class="rounded-full mr-4 border border-gray-600">
+                                <div>
+                                    <h5 class="font-semibold text-white">Lisa M.</h5>
+                                    <p class="text-gray-400 text-sm">Online Educator</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
 
-            <!-- CTA Section -->
+            <section id="about" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-8">About <span class="gradient-text">Verza</span></h3>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        At Verza, we believe creators deserve financial tools that are as innovative and dynamic as their work. Founded by a team passionate about empowering the self-employed, we built Verza to tackle the unique challenges creators face, from complex contracts to unpredictable income.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Our mission is to simplify financial management, protect your income, and provide the clarity you need to focus on what you do best: creating. We're starting where the money begins—your deal—and expanding to become your essential financial operating system.
+                    </p>
+                    <!-- <div class="mt-12">
+                        <img src="https://placehold.co/800x400/1F2937/F8FAFC?text=Verza+Team+Image" alt="Verza Team" class="rounded-xl shadow-lg mx-auto border border-gray-700">
+                    </div> -->
+                </div>
+            </section>
+
             <section class="py-24 px-4 cta-gradient">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h3 class="text-3xl font-bold mb-6">Ready to Transform Your Creator Business?</h3>
-                    <p class="text-gray-300 mb-8">Join the waitlist today and be among the first to experience the future of creator finance.</p>
-                    <button class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
-                        Join Waitlist Now
-                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Control of Your Creator Finances?</h3>
+                    <p class="text-gray-300 mb-8 text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
+                    <a id="finalCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                        Get Started Free Now
+                    </a>
                 </div>
             </section>
         </main>
 
-        <!-- Waitlist Modal -->
-        <div id="waitlistModal" class="modal">
+        <div id="contactSalesModal" class="modal">
             <div class="modal-content">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold gradient-text">Join the Waitlist</h3>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-white">
+                    <h3 class="text-2xl font-bold gradient-text">Contact Sales</h3>
+                    <button onclick="closeContactSalesModal()" class="text-gray-400 hover:text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
-                <form id="waitlistForm" action="https://formspree.io/f/mkgradwv" method="POST">
+                <form id="contactSalesForm" action="https://formspree.io/f/mkgradwv" method="POST">
                     <div class="space-y-4">
                         <div>
                             <input type="text" name="name" class="form-input" placeholder="Your Name" required>
                         </div>
                         <div>
-                            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-input" placeholder="Your Work Email" required>
                         </div>
                         <div>
-                            <select name="creator_type" class="form-input" required>
-                                <option value="" disabled selected>What type of creator are you?</option>
-                                <option value="content">Content Creator</option>
-                                <option value="artist">Digital Artist</option>
-                                <option value="writer">Writer</option>
-                                <option value="developer">Developer</option>
+                            <input type="text" name="company" class="form-input" placeholder="Company/Agency Name (if applicable)">
+                        </div>
+                        <div>
+                            <select name="inquiry_type" class="form-input" required>
+                                <option value="" disabled selected>What is your inquiry about?</option>
+                                <option value="team_pricing">Team Pricing</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="custom_solution">Custom Solution</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
                         <div>
-                            <textarea name="message" class="form-input" rows="3" placeholder="Tell us about your needs (optional)"></textarea>
+                            <textarea name="message" class="form-input" rows="4" placeholder="Tell us more about your needs..."></textarea>
                         </div>
-                        <div class="success-message" id="successMessage">
-                            Thanks for joining! We'll be in touch soon.
+                        <div class="success-message" id="contactSuccessMessage">
+                            Thank you for your inquiry! We'll be in touch soon.
                         </div>
-                        <div class="error-message" id="errorMessage">
+                        <div class="error-message" id="contactErrorMessage">
                             Something went wrong. Please try again.
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition">
-                            Join Waitlist
+                            Send Inquiry
                         </button>
                     </div>
                 </form>
@@ -293,37 +523,37 @@
 
         <footer class="bg-black border-t border-gray-800 py-12 px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
                     <div>
                         <h4 class="text-xl font-bold mb-4 gradient-text">Verza</h4>
-                        <p class="text-gray-400">Empowering creators with AI-powered financial management.</p>
+                        <p class="text-gray-400 text-sm">Empowering creators with AI-powered financial management, from contract to banking.</p>
                     </div>
                     <div>
                         <h5 class="font-semibold mb-4">Product</h5>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Features</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Roadmap</a></li>
+                            <li><a href="#features" class="text-gray-400 hover:text-white transition text-sm">Features</a></li>
+                            <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition text-sm">How it Works</a></li>
+                            <li><a href="#pricing" class="text-gray-400 hover:text-white transition text-sm">Pricing</a></li>
                         </ul>
                     </div>
                     <div>
                         <h5 class="font-semibold mb-4">Company</h5>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">About</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition text-sm">About Us</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Blog (Coming Soon)</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Careers (Coming Soon)</a></li>
                         </ul>
                     </div>
                     <div>
                         <h5 class="font-semibold mb-4">Legal</h5>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Security</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Security</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
                     &copy; 2025 Verza, Inc. All rights reserved.
                 </div>
             </div>
@@ -331,43 +561,53 @@
     </div>
 
     <script>
-        // Modal functionality
-        function openModal() {
-            document.getElementById('waitlistModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+        // Mobile menu toggle functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
         }
 
-        function closeModal() {
-            document.getElementById('waitlistModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // Contact Sales Modal functionality
+        function openContactSalesModal() {
+            document.getElementById('contactSalesModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
         }
 
-        // Add click event listeners to all waitlist buttons
-        document.querySelectorAll('button').forEach(button => {
-            if (button.textContent.includes('Waitlist') || button.textContent.includes('Get Early Access')) {
-                button.addEventListener('click', openModal);
-            }
-        });
+        function closeContactSalesModal() {
+            document.getElementById('contactSalesModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            // Reset form and messages when modal closes
+            document.getElementById('contactSalesForm').reset();
+            document.getElementById('contactSuccessMessage').style.display = 'none';
+            document.getElementById('contactErrorMessage').style.display = 'none';
+            const submitButton = document.getElementById('contactSalesForm').querySelector('button[type="submit"]');
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Inquiry';
+        }
 
-        // Form submission handling
-        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+        // Event listener for the "Contact Sales" button
+        document.getElementById('pricingTeamCta').addEventListener('click', openContactSalesModal);
+
+        // Form submission handling for the Contact Sales modal
+        document.getElementById('contactSalesForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const form = e.target;
             const submitButton = form.querySelector('button[type="submit"]');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('contactSuccessMessage');
+            const errorMessage = document.getElementById('contactErrorMessage');
             
             // Disable submit button and show loading state
             submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            submitButton.textContent = 'Sending...';
             
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
                     body: new FormData(form),
                     headers: {
-                        'Accept': 'application/json'
+                        'Accept': 'application/json' // Important for Formspree to return JSON
                     }
                 });
                 
@@ -376,20 +616,23 @@
                     successMessage.style.display = 'block';
                     errorMessage.style.display = 'none';
                     setTimeout(() => {
-                        closeModal();
-                        successMessage.style.display = 'none';
-                    }, 2000);
+                        closeContactSalesModal();
+                    }, 2500); // Give user time to see success message
                 } else {
+                    // Handle Formspree specific errors if needed, or a generic error
                     throw new Error('Form submission failed');
                 }
             } catch (error) {
+                console.error('Form submission error:', error);
                 errorMessage.style.display = 'block';
                 successMessage.style.display = 'none';
             } finally {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Join Waitlist';
+                submitButton.textContent = 'Send Inquiry';
             }
         });
+
+        // All other CTAs link directly via their href attributes, so no need for JavaScript event listeners to open a modal.
     </script>
 </body>
 </html>
