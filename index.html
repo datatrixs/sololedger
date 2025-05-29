@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WHYBWFWL7"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
 
-    gtag('config', 'G-9WHYBWFWL7');
+        // Set default consent states to 'denied' before any other gtag commands.
+        // This ensures no data is collected until user grants consent.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'functionality_storage': 'granted', // Often considered essential for basic site functionality
+            'personalization_storage': 'granted', // Often considered essential for basic site functionality
+            'security_storage': 'granted' // Security-related cookies should typically always be granted
+        });
+
+        // Your existing gtag config for Google Analytics 4 (GA4)
+        gtag('js', new Date());
+        gtag('config', 'G-9WHYBWFWL7');
     </script>
 
     <meta charset="UTF-8" />
@@ -20,310 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .gradient-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .feature-card, .testimonial-card, .step-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for definition */
-        }
-        .feature-card:hover, .testimonial-card:hover, .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gradient-border {
-            position: relative;
-        }
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-            border-radius: inherit;
-            z-index: -1;
-        }
-        .cta-gradient {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            align-items: center; /* Center modal content vertically */
-            justify-content: center; /* Center modal content horizontally */
-        }
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-        .modal-content {
-            background: linear-gradient(145deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 1rem;
-            padding: 2rem;
-            width: 90%;
-            max-width: 500px;
-            margin: auto; /* Ensure it's centered */
-            transform: translateY(-20px);
-            transition: transform 0.3s ease;
-        }
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-        .form-input {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 0.5rem;
-            padding: 0.75rem 1rem;
-            width: 100%;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: #6366f1;
-            background: rgba(255, 255, 255, 0.15);
-        }
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        .success-message {
-            display: none;
-            text-align: center;
-            color: #10B981;
-            margin-top: 1rem;
-        }
-        .error-message {
-            display: none;
-            text-align: center;
-            color: #EF4444;
-            margin-top: 1rem;
-        }
-        /* Mobile navigation toggle */
-        .hamburger {
-            display: block;
-            cursor: pointer;
-            z-index: 50; /* Ensure it's above other elements */
-        }
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            z-index: 40; /* Below hamburger but above content */
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        .mobile-nav.active {
-            transform: translateX(0);
-            display: flex;
-        }
-        .mobile-nav a {
-            font-size: 1.5rem;
-            color: white;
-            transition: color 0.3s;
-        }
-        .mobile-nav a:hover {
-            color: #6366f1;
-        }
-        @media (min-width: 768px) {
-            .hamburger {
-                display: none;
-            }
-            .mobile-nav {
-                display: none !important; /* Hide on desktop */
-            }
-        }
-        
-        /* GDPR Cookie Consent Styles */
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(145deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 1.5rem;
-            z-index: 1000;
-            transform: translateY(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .cookie-consent.active {
-            transform: translateY(0);
-        }
-        
-        .cookie-consent-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        @media (min-width: 768px) {
-            .cookie-consent-content {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
-        }
-        
-        .cookie-consent-text {
-            color: #E5E7EB;
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-        
-        .cookie-consent-text a {
-            color: #6366F1;
-            text-decoration: underline;
-        }
-        
-        .cookie-consent-buttons {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        
-        .cookie-settings {
-            display: none;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cookie-settings.active {
-            display: block;
-        }
-        
-        .cookie-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cookie-option:last-child {
-            border-bottom: none;
-        }
-        
-        .cookie-option-label {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-        
-        .cookie-option-title {
-            font-weight: 600;
-            color: white;
-        }
-        
-        .cookie-option-description {
-            font-size: 0.875rem;
-            color: #9CA3AF;
-        }
-        
-        /* Toggle Switch */
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 44px;
-            height: 24px;
-        }
-        
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #374151;
-            transition: .4s;
-            border-radius: 24px;
-        }
-        
-        .toggle-slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        
-        input:checked + .toggle-slider {
-            background-color: #6366F1;
-        }
-        
-        input:checked + .toggle-slider:before {
-            transform: translateX(20px);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-black text-white">
     <div class="min-h-screen flex flex-col">
@@ -333,7 +42,6 @@
                 <a href="#features" class="text-gray-300 hover:text-white transition">Features</a>
                 <a href="#how-it-works" class="text-gray-300 hover:text-white transition">How it Works</a>
                 <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
-                <!-- <a href="#testimonials" class="text-gray-300 hover:text-white transition">Testimonials</a> -->
                 <a href="#about" class="text-gray-300 hover:text-white transition">About Us</a>
             </nav>
             <a id="headerCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
@@ -353,7 +61,6 @@
             <a href="#features" class="block py-4" onclick="toggleMobileMenu()">Features</a>
             <a href="#how-it-works" class="block py-4" onclick="toggleMobileMenu()">How it Works</a>
             <a href="#pricing" class="block py-4" onclick="toggleMobileMenu()">Pricing</a>
-            <!-- <a href="#testimonials" class="block py-4" onclick="toggleMobileMenu()">Testimonials</a> -->
             <a href="#about" class="block py-4" onclick="toggleMobileMenu()">About Us</a>
             <a id="mobileCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition mt-8">
                 Get Started Free
@@ -379,7 +86,6 @@
                     </div>
                     <div class="mt-12 animate-float">
                         <div style="position: relative; padding-bottom: 57.324840764331206%; height: 0;"><iframe src="https://www.loom.com/embed/680602c2295c4f5a9a9d74a3d60fb32b?sid=49ebdf4e-1e33-411d-923e-169868252b8e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-                        <!-- <img src="assets/dashboard-screen.png" alt="Verza Platform Preview" class="rounded-xl shadow-2xl mx-auto border border-gray-700"> -->
                     </div>
                 </div>
             </section>
@@ -402,14 +108,6 @@
                             <h4 class="text-xl font-semibold mb-2">Negotiation Suggestions</h4>
                             <p class="text-gray-400">Receive AI-powered recommendations for better payment terms, exclusivity clauses, IP rights, and other critical contract elements.</p>
                         </div>
-                        <!-- <div class="feature-card p-8 rounded-xl">
-                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
-                                <i class="fas fa-history"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Contract Version Control</h4>
-                            <p class="text-gray-400">Save and compare different versions of your contracts over time, ensuring you always have the latest and best terms.</p>
-                        </div> -->
-
                         <div class="feature-card p-8 rounded-xl">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-money-bill-wave"></i>
@@ -424,21 +122,6 @@
                             <h4 class="text-xl font-semibold mb-2">Smart Invoicing & Payments</h4>
                             <p class="text-gray-400">Create professional invoices, send automated payment reminders, and track the status of all your outstanding payments.</p>
                         </div>
-                        <!-- <div class="feature-card p-8 rounded-xl">
-                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Tax Planning & Reminders</h4>
-                            <p class="text-gray-400">Automatically estimate your quarterly taxes, set payment reminders, and prepare for 1099s with ease, avoiding last-minute stress.</p>
-                        </div> -->
-
-                        <!-- <div class="feature-card p-8 rounded-xl">
-                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
-                                <i class="fas fa-bank"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Creator Banking Integration</h4>
-                            <p class="text-gray-400">Keep your funds within Verza for streamlined financial management, direct deposit, and easy categorization of income and expenses.</p>
-                        </div> -->
                         <div class="feature-card p-8 rounded-xl">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-chart-line"></i>
@@ -474,7 +157,7 @@
                         <div class="step-card p-8 rounded-xl flex flex-col items-center">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">3</div>
                             <h4 class="text-2xl font-semibold mb-3">Manage & Grow</h4>
-                            <p class="text-gray-400">Track income, send invoices, plan taxes, and manage your funds all in one place, freeing you to create.</p>
+                            <p class="text-gray-400">Track income, send invoices, and manage your funds all in one place, freeing you to create.</p>
                         </div>
                     </div>
                 </div>
@@ -511,7 +194,6 @@
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Negotiation Recommendations</li>
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Unlimited Contract Storage</li>
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Smart Invoicing & Payment Tracking</li>
-                                <!-- <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Tax Planning & Reminders</li> -->
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Basic Banking Integration (coming soon)</li>
                             </ul>
                             <a id="pricingProCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="mt-8 w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition text-center">
@@ -547,54 +229,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- <section id="testimonials" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
-                <div class="max-w-6xl mx-auto">
-                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">What <span class="gradient-text">Creators</span> Are Saying</h3>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="testimonial-card p-8 rounded-xl">
-                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"Verza has completely transformed how I handle my business deals. The AI insights are incredibly accurate, saving me hours of work and giving me peace of mind."</p>
-                            <div class="flex items-center">
-                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=SJ" alt="Sarah J." class="rounded-full mr-4 border border-gray-600">
-                                <div>
-                                    <h5 class="font-semibold text-white">Sarah J.</h5>
-                                    <p class="text-gray-400 text-sm">Content Creator & YouTuber</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl">
-                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"The payment tracking feature alone is worth it. I never miss a payment deadline anymore, and my clients appreciate the professional, automated follow-ups. A game-changer!"</p>
-                            <div class="flex items-center">
-                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=MT" alt="Michael T." class="rounded-full mr-4 border border-gray-600">
-                                <div>
-                                    <h5 class="font-semibold text-white">Michael T.</h5>
-                                    <p class="text-gray-400 text-sm">Digital Artist & Freelancer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl">
-                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"Finally, a tool that understands the unique financial needs of creators. From contracts to taxes, Verza keeps everything organized and stress-free."</p>
-                            <div class="flex items-center">
-                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=AK" alt="Alex K." class="rounded-full mr-4 border border-gray-600">
-                                <div>
-                                    <h5 class="font-semibold text-white">Alex K.</h5>
-                                    <p class="text-gray-400 text-sm">Musician & Producer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card p-8 rounded-xl">
-                            <p class="text-gray-300 mb-6 text-lg leading-relaxed">"The tax planning features are a lifesaver! I used to dread tax season, but Verza makes it so much easier to estimate and prepare. Highly recommend."</p>
-                            <div class="flex items-center">
-                                <img src="https://placehold.co/50x50/334155/F8FAFC?text=LM" alt="Lisa M." class="rounded-full mr-4 border border-gray-600">
-                                <div>
-                                    <h5 class="font-semibold text-white">Lisa M.</h5>
-                                    <p class="text-gray-400 text-sm">Online Educator</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
 
             <section id="about" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-4xl mx-auto text-center">
@@ -632,7 +266,7 @@
                         </svg>
                     </button>
                 </div>
-                <form id="contactSalesForm" action="https://formspree.io/f/mkgradwv" method="POST">
+                <form id="contactSalesForm" action="https://formspree.io/f/your_form_id" method="POST">
                     <div class="space-y-4">
                         <div>
                             <input type="text" name="name" class="form-input" placeholder="Your Name" required>
@@ -666,6 +300,65 @@
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div id="cookieConsentBanner" class="cookie-consent text-white">
+            <div class="cookie-consent-content">
+                <p class="cookie-consent-text">
+                    We use cookies to ensure you get the best experience on our website. By clicking "Accept All", you consent to the use of all cookies. For more details, please see our <a href="#" class="font-semibold">Privacy Policy</a>.
+                </p>
+                <div class="cookie-consent-buttons">
+                    <button onclick="acceptAllCookies()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                        Accept All
+                    </button>
+                    <button onclick="rejectAllCookies()" class="bg-gray-700 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:bg-gray-600 transition">
+                        Reject All
+                    </button>
+                    <button onclick="toggleCookieSettings()" class="bg-gray-800 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:bg-gray-700 transition">
+                        Manage Preferences
+                    </button>
+                </div>
+            </div>
+            <div id="cookieSettings" class="cookie-settings text-white">
+                <h4 class="text-lg font-semibold mb-4">Cookie Preferences</h4>
+                <div class="space-y-4">
+                    <div class="cookie-option">
+                        <label class="cookie-option-label">
+                            <span class="cookie-option-title">Strictly Necessary Cookies</span>
+                            <span class="cookie-option-description">These cookies are essential for the website to function and cannot be switched off.</span>
+                        </label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="cookie-option">
+                        <label class="cookie-option-label">
+                            <span class="cookie-option-title">Analytics Cookies</span>
+                            <span class="cookie-option-description">These cookies allow us to count visits and traffic sources, so we can measure and improve the performance of our site.</span>
+                        </label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="analyticsConsent">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="cookie-option">
+                        <label class="cookie-option-label">
+                            <span class="cookie-option-title">Marketing Cookies</span>
+                            <span class="cookie-option-description">These cookies may be set through our site by our advertising partners to build a profile of your interests.</span>
+                        </label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="marketingConsent">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-6 text-right">
+                    <button onclick="saveCookiePreferences()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition">
+                        Save Preferences
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -708,61 +401,87 @@
         </footer>
     </div>
 
-    <!-- GDPR Cookie Consent -->
-    <div id="cookieConsent" class="cookie-consent">
-        <div class="cookie-consent-content">
-            <div class="cookie-consent-text">
-                <p>We use cookies to enhance your experience, analyze site traffic, and for marketing purposes. By clicking "Accept All", you consent to our use of cookies. <a href="#" onclick="showCookieSettings()">Customize Settings</a></p>
-            </div>
-            <div class="cookie-consent-buttons">
-                <button onclick="acceptAllCookies()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition">
-                    Accept All
-                </button>
-                <button onclick="acceptEssentialCookies()" class="border border-gray-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition">
-                    Essential Only
-                </button>
-            </div>
-        </div>
-        <div id="cookieSettings" class="cookie-settings">
-            <div class="cookie-option">
-                <div class="cookie-option-label">
-                    <span class="cookie-option-title">Essential Cookies</span>
-                    <span class="cookie-option-description">Required for the website to function properly. Cannot be disabled.</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked disabled>
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <div class="cookie-option-label">
-                    <span class="cookie-option-title">Analytics Cookies</span>
-                    <span class="cookie-option-description">Help us understand how visitors interact with our website.</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="analyticsCookies">
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <div class="cookie-option-label">
-                    <span class="cookie-option-title">Marketing Cookies</span>
-                    <span class="cookie-option-description">Used to track visitors across websites for marketing purposes.</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="marketingCookies">
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            <div class="mt-4 flex justify-end gap-3">
-                <button onclick="saveCookiePreferences()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition">
-                    Save Preferences
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
+        // --- Consent Mode Logic ---
+        const COOKIE_CONSENT_KEY = 'verza_cookie_consent';
+        const consentBanner = document.getElementById('cookieConsentBanner');
+        const cookieSettings = document.getElementById('cookieSettings');
+        const analyticsConsentToggle = document.getElementById('analyticsConsent');
+        const marketingConsentToggle = document.getElementById('marketingConsent');
+
+        // Function to update gtag consent
+        function updateGtagConsent(ad_storage_status, analytics_storage_status) {
+            gtag('consent', 'update', {
+                'ad_storage': ad_storage_status,
+                'analytics_storage': analytics_storage_status,
+                'ad_user_data': ad_storage_status, // Link ad_user_data to ad_storage
+                'ad_personalization': ad_storage_status, // Link ad_personalization to ad_storage
+            });
+            console.log('Gtag consent updated:', {
+                'ad_storage': ad_storage_status,
+                'analytics_storage': analytics_storage_status
+            });
+        }
+
+        // Load saved consent preferences
+        function loadConsentPreferences() {
+            const savedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
+            if (savedConsent) {
+                const preferences = JSON.parse(savedConsent);
+                analyticsConsentToggle.checked = preferences.analytics_storage === 'granted';
+                marketingConsentToggle.checked = preferences.ad_storage === 'granted';
+                updateGtagConsent(preferences.ad_storage, preferences.analytics_storage);
+                consentBanner.classList.remove('active'); // Hide banner if consent already exists
+            } else {
+                consentBanner.classList.add('active'); // Show banner if no consent yet
+            }
+        }
+
+        // Save consent preferences to localStorage
+        function saveConsentPreferences() {
+            const preferences = {
+                analytics_storage: analyticsConsentToggle.checked ? 'granted' : 'denied',
+                ad_storage: marketingConsentToggle.checked ? 'granted' : 'denied',
+                // functionality_storage, personalization_storage, security_storage are always granted by default
+                functionality_storage: 'granted',
+                personalization_storage: 'granted',
+                security_storage: 'granted'
+            };
+            localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));
+            updateGtagConsent(preferences.ad_storage, preferences.analytics_storage);
+            closeCookieConsentBanner();
+        }
+
+        // Handle "Accept All" button click
+        function acceptAllCookies() {
+            analyticsConsentToggle.checked = true;
+            marketingConsentToggle.checked = true;
+            saveConsentPreferences();
+        }
+
+        // Handle "Reject All" button click
+        function rejectAllCookies() {
+            analyticsConsentToggle.checked = false;
+            marketingConsentToggle.checked = false;
+            saveConsentPreferences();
+        }
+
+        // Toggle visibility of cookie settings panel
+        function toggleCookieSettings() {
+            cookieSettings.classList.toggle('active');
+        }
+
+        // Close the entire cookie consent banner
+        function closeCookieConsentBanner() {
+            consentBanner.classList.remove('active');
+            cookieSettings.classList.remove('active'); // Also hide settings if open
+        }
+
+        // Load consent preferences when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', loadConsentPreferences);
+
+        // --- Existing JavaScript Logic ---
+
         // Mobile menu toggle functionality
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
@@ -805,6 +524,7 @@
             submitButton.textContent = 'Sending...';
             
             try {
+                // IMPORTANT: Replace 'https://formspree.io/f/your_form_id' with your actual Formspree endpoint
                 const response = await fetch(form.action, {
                     method: 'POST',
                     body: new FormData(form),
@@ -832,92 +552,6 @@
                 submitButton.disabled = false;
                 submitButton.textContent = 'Send Inquiry';
             }
-        });
-
-        // All other CTAs link directly via their href attributes, so no need for JavaScript event listeners to open a modal.
-
-        // Cookie Consent Functions
-        function showCookieConsent() {
-            if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookieConsent').classList.add('active');
-            }
-        }
-
-        function hideCookieConsent() {
-            document.getElementById('cookieConsent').classList.remove('active');
-        }
-
-        function showCookieSettings() {
-            document.getElementById('cookieSettings').classList.add('active');
-        }
-
-        function acceptAllCookies() {
-            localStorage.setItem('cookieConsent', 'all');
-            localStorage.setItem('analyticsCookies', 'true');
-            localStorage.setItem('marketingCookies', 'true');
-            hideCookieConsent();
-            initializeCookies();
-        }
-
-        function acceptEssentialCookies() {
-            localStorage.setItem('cookieConsent', 'essential');
-            localStorage.setItem('analyticsCookies', 'false');
-            localStorage.setItem('marketingCookies', 'false');
-            hideCookieConsent();
-            initializeCookies();
-        }
-
-        function saveCookiePreferences() {
-            const analytics = document.getElementById('analyticsCookies').checked;
-            const marketing = document.getElementById('marketingCookies').checked;
-            
-            localStorage.setItem('cookieConsent', 'custom');
-            localStorage.setItem('analyticsCookies', analytics);
-            localStorage.setItem('marketingCookies', marketing);
-            
-            hideCookieConsent();
-            initializeCookies();
-        }
-
-        function initializeCookies() {
-            const analytics = localStorage.getItem('analyticsCookies') === 'true';
-            const marketing = localStorage.getItem('marketingCookies') === 'true';
-
-            // Initialize Google Analytics if analytics cookies are accepted
-            if (analytics) {
-                // Your Google Analytics initialization code
-                gtag('consent', 'update', {
-                    'analytics_storage': 'granted'
-                });
-            } else {
-                gtag('consent', 'update', {
-                    'analytics_storage': 'denied'
-                });
-            }
-
-            // Initialize marketing cookies if accepted
-            if (marketing) {
-                // Your marketing cookies initialization code
-                gtag('consent', 'update', {
-                    'ad_storage': 'granted'
-                });
-            } else {
-                gtag('consent', 'update', {
-                    'ad_storage': 'denied'
-                });
-            }
-        }
-
-        // Show cookie consent on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            showCookieConsent();
-            
-            // Set initial states of cookie toggles
-            const analytics = localStorage.getItem('analyticsCookies') === 'true';
-            const marketing = localStorage.getItem('marketingCookies') === 'true';
-            
-            document.getElementById('analyticsCookies').checked = analytics;
-            document.getElementById('marketingCookies').checked = marketing;
         });
     </script>
 </body>
