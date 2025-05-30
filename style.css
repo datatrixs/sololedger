@@ -22,6 +22,7 @@ header {
     border-bottom: 1px solid rgba(255, 51, 102, 0.2);
     position: relative;
     overflow: hidden;
+    z-index: 100;
 }
 
 header::before {
@@ -37,42 +38,7 @@ header::before {
         transparent 100%
     );
     animation: scanline 2s linear infinite;
-}
-
-/* Glitch Effect for Logo */
-.gradient-text {
-    position: relative;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: glitch 5s infinite;
-}
-
-.gradient-text::before,
-.gradient-text::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.gradient-text::before {
-    left: 2px;
-    text-shadow: -2px 0 var(--accent);
-    animation: glitch-1 2s infinite linear alternate-reverse;
-}
-
-.gradient-text::after {
-    left: -2px;
-    text-shadow: 2px 0 var(--primary);
-    animation: glitch-2 3s infinite linear alternate-reverse;
+    pointer-events: none;
 }
 
 /* Experimental Navigation */
@@ -131,7 +97,7 @@ nav a:hover::before {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .feature-card::before {
@@ -147,6 +113,13 @@ nav a:hover::before {
     );
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.feature-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .feature-card:hover::before {
@@ -175,36 +148,10 @@ nav a:hover::before {
     background-size: 200% 100%;
     animation: gradient-shift 3s linear infinite;
     z-index: -1;
+    pointer-events: none;
 }
 
 /* Experimental Animations */
-@keyframes glitch {
-    0% { transform: translate(0) }
-    20% { transform: translate(-2px, 2px) }
-    40% { transform: translate(-2px, -2px) }
-    60% { transform: translate(2px, 2px) }
-    80% { transform: translate(2px, -2px) }
-    100% { transform: translate(0) }
-}
-
-@keyframes glitch-1 {
-    0% { transform: translate(0) }
-    20% { transform: translate(-2px, 2px) }
-    40% { transform: translate(-2px, -2px) }
-    60% { transform: translate(2px, 2px) }
-    80% { transform: translate(2px, -2px) }
-    100% { transform: translate(0) }
-}
-
-@keyframes glitch-2 {
-    0% { transform: translate(0) }
-    20% { transform: translate(2px, -2px) }
-    40% { transform: translate(-2px, 2px) }
-    60% { transform: translate(2px, 2px) }
-    80% { transform: translate(-2px, -2px) }
-    100% { transform: translate(0) }
-}
-
 @keyframes scanline {
     0% { transform: translateX(-100%) }
     100% { transform: translateX(100%) }
@@ -259,15 +206,21 @@ nav a:hover::before {
 
 /* Experimental Form Elements */
 .form-input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    color: white !important;
 }
 
-.form-input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+.form-input::placeholder {
+    color: transparent;
+}
+
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.2) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Experimental Footer */
@@ -306,14 +259,26 @@ footer::before {
 
 /* Experimental Modal */
 .modal {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 1001;
 }
 
 /* Experimental Scrollbar */
@@ -332,4 +297,59 @@ footer::before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(var(--secondary), var(--primary));
+}
+
+/* Form Labels */
+.form-input + label {
+    transform-origin: left top;
+    transition: all 0.2s ease;
+}
+
+.form-input + label.floating {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--primary);
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.gradient-text::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: blur(8px);
+    opacity: 0.5;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+    from {
+        filter: blur(8px);
+        opacity: 0.5;
+    }
+    to {
+        filter: blur(12px);
+        opacity: 0.8;
+    }
 }
