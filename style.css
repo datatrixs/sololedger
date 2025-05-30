@@ -171,14 +171,20 @@ nav a:hover::before {
 
 /* Experimental Mobile Menu */
 .mobile-nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-}
+    z-index: 1000;
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+    transition: opacity 0.3s ease;}
 
 .mobile-nav.active {
-    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .mobile-nav a {
