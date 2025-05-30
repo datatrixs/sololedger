@@ -116,101 +116,108 @@
 </head>
 <body class="bg-black text-white">
     <div class="min-h-screen flex flex-col">
-        <header class="px-6 py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
-            <a href="/" class="text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition">Verza</a>
+        <header class="px-4 py-4 md:px-6 md:py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
+            <a href="/" class="text-xl md:text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition" data-text="Verza">Verza</a>
             <nav class="hidden md:flex space-x-8">
-                <a href="#features" class="text-gray-300 hover:text-white transition">Features</a>
-                <a href="#how-it-works" class="text-gray-300 hover:text-white transition">How it Works</a>
-                <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
-                <a href="#about" class="text-gray-300 hover:text-white transition">About Us</a>
-                <a href="blog/index.html" class="text-gray-300 hover:text-white transition">Blog</a> 
+                <a href="#features" class="text-gray-300 hover:text-white transition glitch-link" data-text="Features">Features</a>
+                <a href="#how-it-works" class="text-gray-300 hover:text-white transition glitch-link" data-text="How it Works">How it Works</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white transition glitch-link" data-text="Pricing">Pricing</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition glitch-link" data-text="About Us">About Us</a>
+                <a href="blog/index.html" class="text-gray-300 hover:text-white transition glitch-link" data-text="Blog">Blog</a> 
             </nav>
-            <a id="headerCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+            <a href="https://app.tryverza.com/login" target="_blank" class="hidden md:inline-block bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
                 Get Started Free
             </a>
             <div class="md:hidden hamburger" onclick="toggleMobileMenu()">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </div>
         </header>
 
         <div id="mobileMenu" class="mobile-nav md:hidden">
-            <button class="absolute top-6 right-6 text-white text-3xl" onclick="toggleMobileMenu()">
+            <button class="absolute top-4 right-4 text-white text-3xl" onclick="toggleMobileMenu()">
                 &times;
             </button>
-            <a href="#features" class="block py-4" onclick="toggleMobileMenu()">Features</a>
-            <a href="#how-it-works" class="block py-4" onclick="toggleMobileMenu()">How it Works</a>
-            <a href="#pricing" class="block py-4" onclick="toggleMobileMenu()">Pricing</a>
-            <a href="#about" class="block py-4" onclick="toggleMobileMenu()">About Us</a>
-            <a id="mobileCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition mt-8">
-                Get Started Free
-            </a>
+            <div class="flex flex-col h-full">
+                <div class="flex-grow pt-16 px-4">
+                    <a href="#features" class="block py-3 text-lg glitch-link" data-text="Features" onclick="toggleMobileMenu()">Features</a>
+                    <a href="#how-it-works" class="block py-3 text-lg glitch-link" data-text="How it Works" onclick="toggleMobileMenu()">How it Works</a>
+                    <a href="#pricing" class="block py-3 text-lg glitch-link" data-text="Pricing" onclick="toggleMobileMenu()">Pricing</a>
+                    <a href="#about" class="block py-3 text-lg glitch-link" data-text="About Us" onclick="toggleMobileMenu()">About Us</a>
+                    <a href="blog/index.html" class="block py-3 text-lg glitch-link" data-text="Blog" onclick="toggleMobileMenu()">Blog</a>
+                </div>
+                <div class="p-4 border-t border-gray-800">
+                    <a href="https://app.tryverza.com/login" target="_blank" class="block w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition text-center">
+                        Get Started Free
+                    </a>
+                </div>
+            </div>
         </div>
 
         <main class="flex-grow">
-            <section class="gradient-bg py-24 px-4">
+            <section class="gradient-bg py-16 md:py-24 px-4">
                 <div class="max-w-6xl mx-auto text-center relative z-10">
-                    <h2 class="text-4xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight">
-                        Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for <span class="gradient-text">Creators</span>
+                    <h2 class="text-3xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight">
+                        Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for <br /> <span class="gradient-text" data-text="Creators">Creators</span>
                     </h2>
-                    <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-300">
+                    <p class="mt-4 md:mt-6 text-base md:text-lg max-w-2xl mx-auto text-gray-300">
                         Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, track your deals, and manage your finances, ensuring you get paid and can focus on creating.
                     </p>
-                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a id="heroCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                    <div class="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://app.tryverza.com/login" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
                             Get Started Free
                         </a>
-                        <a href="#how-it-works" class="gradient-border bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-900 transition flex items-center justify-center">
+                        <a href="#how-it-works" class="w-full sm:w-auto gradient-border bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-gray-900 transition flex items-center justify-center">
                             <i class="fas fa-play-circle mr-2"></i> How it Works
                         </a>
                     </div>
-                    <div class="mt-12 animate-float">
+                    <div class="mt-8 md:mt-12 animate-float">
                         <div style="position: relative; padding-bottom: 57.26405090137858%; height: 0;"><iframe src="https://www.loom.com/embed/49ecb0644106443c9bdd5548253b76e6?sid=51aa1223-bd88-4e6c-be28-3854fa6d4016" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>                    
                     </div>
                 </div>
             </section>
 
-            <section id="features" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <section id="features" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-6xl mx-auto">
-                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">Unlock Your Full Potential with <span class="gradient-text">Verza</span></h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="feature-card p-8 rounded-xl">
+                    <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16">Unlock Your Full Potential with <span class="gradient-text" data-text="Verza">Verza</span></h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                        <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-file-contract"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">AI Contract Analysis</h4>
                             <p class="text-gray-400">Upload any contract to instantly flag redlines, hidden clauses, and key terms. Get clear, plain English translations of complex legalese.</p>
                         </div>
-                        <div class="feature-card p-8 rounded-xl">
+                        <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Negotiation Suggestions</h4>
                             <p class="text-gray-400">Receive AI-powered recommendations for better payment terms, exclusivity clauses, IP rights, and other critical contract elements.</p>
                         </div>
-                        <div class="feature-card p-8 rounded-xl">
+                        <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-money-bill-wave"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Automated Income Tracking</h4>
                             <p class="text-gray-400">Seamlessly track all your income by scanning contracts and linking payment sources, giving you a real-time financial overview.</p>
                         </div>
-                        <div class="feature-card p-8 rounded-xl">
+                        <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-file-invoice-dollar"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Smart Invoicing & Payments</h4>
                             <p class="text-gray-400">Create professional invoices, send automated payment reminders, and track the status of all your outstanding payments.</p>
                         </div>
-                        <div class="feature-card p-8 rounded-xl">
+                        <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Financial Insights Dashboard</h4>
                             <p class="text-gray-400">Access real-time analytics, visualize your cash flow, and gain actionable insights to make informed business decisions.</p>
                         </div>
-                        <div class="feature-card p-8 rounded-xl">
+                        <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
@@ -221,21 +228,21 @@
                 </div>
             </section>
 
-            <section id="how-it-works" class="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
+            <section id="how-it-works" class="py-16 md:py-24 px-4 bg-gradient-to-b from-black to-gray-900">
                 <div class="max-w-6xl mx-auto text-center">
-                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">How <span class="gradient-text">Verza</span> Simplifies Your Business</h3>
-                    <div class="grid md:grid-cols-3 gap-12">
-                        <div class="step-card p-8 rounded-xl flex flex-col items-center">
+                    <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16">How <span class="gradient-text" data-text="Verza">Verza</span> Simplifies Your Business</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                        <div class="step-card p-8 rounded-xl flex flex-col items-center glass-effect">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">1</div>
                             <h4 class="text-2xl font-semibold mb-3">Upload Your Deal</h4>
                             <p class="text-gray-400">Simply upload or paste your contract text. Verza's AI instantly gets to work, analyzing every detail.</p>
                         </div>
-                        <div class="step-card p-8 rounded-xl flex flex-col items-center">
+                        <div class="step-card p-8 rounded-xl flex flex-col items-center glass-effect">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">2</div>
                             <h4 class="text-2xl font-semibold mb-3">Get Instant Insights</h4>
                             <p class="text-gray-400">Receive clear explanations of legalese, flagged redlines, and smart suggestions for negotiation terms.</p>
                         </div>
-                        <div class="step-card p-8 rounded-xl flex flex-col items-center">
+                        <div class="step-card p-8 rounded-xl flex flex-col items-center glass-effect">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">3</div>
                             <h4 class="text-2xl font-semibold mb-3">Manage & Grow</h4>
                             <p class="text-gray-400">Track income, send invoices, and manage your funds all in one place, freeing you to create.</p>
@@ -244,11 +251,11 @@
                 </div>
             </section>
 
-            <section id="pricing" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <section id="pricing" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-6xl mx-auto text-center">
-                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">Simple Pricing for Every <span class="gradient-text">Creator</span></h3>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="feature-card p-8 rounded-xl flex flex-col">
+                    <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16">Simple Pricing for Every <span class="gradient-text" data-text="Creator">Creator</span></h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                        <div class="feature-card p-8 rounded-xl flex flex-col glass-effect">
                             <h4 class="text-2xl font-semibold mb-4">Free Trial</h4>
                             <p class="text-gray-400 mb-6">Experience all Pro features for 7 days.</p>
                             <div class="text-5xl font-bold mb-6">
@@ -259,13 +266,13 @@
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> No credit card required</li>
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Cancel anytime</li>
                             </ul>
-                            <a id="pricingFreeCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="mt-8 w-full bg-gray-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition text-center">
+                            <a href="https://app.tryverza.com/login" target="_blank" class="mt-8 w-full bg-gray-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-600 transition text-center">
                                 Start Free Trial
                             </a>
                         </div>
 
-                        <div class="feature-card p-8 rounded-xl flex flex-col border border-indigo-500">
-                            <h4 class="text-2xl font-semibold mb-4 gradient-text">Pro</h4>
+                        <div class="feature-card p-8 rounded-xl flex flex-col border border-indigo-500 glass-effect">
+                            <h4 class="text-2xl font-semibold mb-4 gradient-text" data-text="Pro">Pro</h4>
                             <p class="text-gray-400 mb-6">For growing creators ready to scale.</p>
                             <div class="text-5xl font-bold mb-6">
                                 $10<span class="text-xl text-gray-400">/month</span>
@@ -277,12 +284,12 @@
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Smart Invoicing & Payment Tracking</li>
                                 <li class="flex items-center"><i class="fas fa-check-circle text-indigo-400 mr-2"></i> Basic Banking Integration (coming soon)</li>
                             </ul>
-                            <a id="pricingProCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="mt-8 w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition text-center">
+                            <a href="https://app.tryverza.com/login" target="_blank" class="mt-8 w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition text-center">
                                 Get Pro Access
                             </a>
                         </div>
 
-                        <div class="feature-card p-8 rounded-xl flex flex-col">
+                        <div class="feature-card p-8 rounded-xl flex flex-col glass-effect">
                             <h4 class="text-2xl font-semibold mb-4">Team</h4>
                             <p class="text-gray-400 mb-6">For creator managers and agencies.</p>
                             <div class="text-5xl font-bold mb-6">
@@ -311,36 +318,33 @@
                 </div>
             </section>
 
-            <section id="about" class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <section id="about" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-8">About <span class="gradient-text">Verza</span></h3>
-                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                    <h3 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8">About <span class="gradient-text" data-text="Verza">Verza</span></h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6 md:mb-8">
                         At Verza, we believe creators deserve financial tools that are as innovative and dynamic as their work. Founded by a team passionate about empowering the self-employed, we built Verza to tackle the unique challenges creators face, from complex contracts to unpredictable income.
                     </p>
-                    <p class="text-lg text-gray-300 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">
                         Our mission is to simplify financial management, protect your income, and provide the clarity you need to focus on what you do best: creating. We're starting where the money begins—your deal—and expanding to become your essential financial operating system.
                     </p>
-                    <!-- <div class="mt-12">
-                        <img src="https://placehold.co/800x400/1F2937/F8FAFC?text=Verza+Team+Image" alt="Verza Team" class="rounded-xl shadow-lg mx-auto border border-gray-700">
-                    </div> -->
                 </div>
             </section>
 
-            <section class="py-24 px-4 cta-gradient">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Control of Your Creator Finances?</h3>
-                    <p class="text-gray-300 mb-8 text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
-                    <a id="finalCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+            <section class="py-16 md:py-24 gradient-bg">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h3 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Ready to Take Control of Your Creator Finances?</h3>
+                    <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
+                    <a href="https://app.tryverza.com/login" target="_blank" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
                         Get Started Free Now
                     </a>
                 </div>
             </section>
         </main>
 
-        <div id="contactSalesModal" class="modal">
-            <div class="modal-content">
+        <div id="contactSalesModal" class="modal" style="display: none;">
+            <div class="modal-content glass-effect">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold gradient-text">Contact Sales</h3>
+                    <h3 class="text-2xl font-bold gradient-text" data-text="Contact Sales">Contact Sales</h3>
                     <button onclick="closeContactSalesModal()" class="text-gray-400 hover:text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -350,16 +354,16 @@
                 <form id="contactSalesForm" action="https://formspree.io/f/your_form_id" method="POST">
                     <div class="space-y-4">
                         <div>
-                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-input glass-effect" placeholder="Your Name" required>
                         </div>
                         <div>
-                            <input type="email" name="email" class="form-input" placeholder="Your Work Email" required>
+                            <input type="email" name="email" class="form-input glass-effect" placeholder="Your Work Email" required>
                         </div>
                         <div>
-                            <input type="text" name="company" class="form-input" placeholder="Company/Agency Name (if applicable)">
+                            <input type="text" name="company" class="form-input glass-effect" placeholder="Company/Agency Name (if applicable)">
                         </div>
                         <div>
-                            <select name="inquiry_type" class="form-input" required>
+                            <select name="inquiry_type" class="form-input glass-effect" required>
                                 <option value="" disabled selected>What is your inquiry about?</option>
                                 <option value="team_pricing">Team Pricing</option>
                                 <option value="partnership">Partnership Opportunities</option>
@@ -368,7 +372,7 @@
                             </select>
                         </div>
                         <div>
-                            <textarea name="message" class="form-input" rows="4" placeholder="Tell us more about your needs..."></textarea>
+                            <textarea name="message" class="form-input glass-effect" rows="4" placeholder="Tell us more about your needs..."></textarea>
                         </div>
                         <div class="success-message" id="contactSuccessMessage">
                             Thank you for your inquiry! We'll be in touch soon.
@@ -384,70 +388,11 @@
             </div>
         </div>
 
-        <div id="cookieConsentBanner" class="cookie-consent text-white">
-            <div class="cookie-consent-content">
-                <p class="cookie-consent-text">
-                    We use cookies to ensure you get the best experience on our website. By clicking "Accept All", you consent to the use of all cookies. For more details, please see our <a href="#" class="font-semibold">Privacy Policy</a>.
-                </p>
-                <div class="cookie-consent-buttons">
-                    <button onclick="acceptAllCookies()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
-                        Accept All
-                    </button>
-                    <button onclick="rejectAllCookies()" class="bg-gray-700 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:bg-gray-600 transition">
-                        Reject All
-                    </button>
-                    <button onclick="toggleCookieSettings()" class="bg-gray-800 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:bg-gray-700 transition">
-                        Manage Preferences
-                    </button>
-                </div>
-            </div>
-            <div id="cookieSettings" class="cookie-settings text-white">
-                <h4 class="text-lg font-semibold mb-4">Cookie Preferences</h4>
-                <div class="space-y-4">
-                    <div class="cookie-option">
-                        <label class="cookie-option-label">
-                            <span class="cookie-option-title">Strictly Necessary Cookies</span>
-                            <span class="cookie-option-description">These cookies are essential for the website to function and cannot be switched off.</span>
-                        </label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" checked disabled>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="cookie-option">
-                        <label class="cookie-option-label">
-                            <span class="cookie-option-title">Analytics Cookies</span>
-                            <span class="cookie-option-description">These cookies allow us to count visits and traffic sources, so we can measure and improve the performance of our site.</span>
-                        </label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="analyticsConsent">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <div class="cookie-option">
-                        <label class="cookie-option-label">
-                            <span class="cookie-option-title">Marketing Cookies</span>
-                            <span class="cookie-option-description">These cookies may be set through our site by our advertising partners to build a profile of your interests.</span>
-                        </label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="marketingConsent">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="mt-6 text-right">
-                    <button onclick="saveCookiePreferences()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition">
-                        Save Preferences
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <footer class="bg-black border-t border-gray-800 py-12 px-6">
+        <footer class="bg-black border-t border-gray-800 py-8 md:py-12 px-4 md:px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
                     <div>
-                        <h4 class="text-xl font-bold mb-4 gradient-text">Verza</h4>
+                        <h4 class="text-xl font-bold mb-4 gradient-text" data-text="Verza">Verza</h4>
                         <p class="text-gray-400 text-sm">Empowering creators with AI-powered financial management, from contract to banking.</p>
                     </div>
                     <div>
@@ -475,7 +420,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
                     &copy; 2025 Verza, Inc. All rights reserved.
                 </div>
             </div>
@@ -495,8 +440,8 @@
             gtag('consent', 'update', {
                 'ad_storage': ad_storage_status,
                 'analytics_storage': analytics_storage_status,
-                'ad_user_data': ad_storage_status, // Link ad_user_data to ad_storage
-                'ad_personalization': ad_storage_status, // Link ad_personalization to ad_storage
+                'ad_user_data': ad_storage_status,
+                'ad_personalization': ad_storage_status,
             });
             console.log('Gtag consent updated:', {
                 'ad_storage': ad_storage_status,
@@ -512,9 +457,9 @@
                 analyticsConsentToggle.checked = preferences.analytics_storage === 'granted';
                 marketingConsentToggle.checked = preferences.ad_storage === 'granted';
                 updateGtagConsent(preferences.ad_storage, preferences.analytics_storage);
-                consentBanner.classList.remove('active'); // Hide banner if consent already exists
+                consentBanner.classList.remove('active');
             } else {
-                consentBanner.classList.add('active'); // Show banner if no consent yet
+                consentBanner.classList.add('active');
             }
         }
 
@@ -523,7 +468,6 @@
             const preferences = {
                 analytics_storage: analyticsConsentToggle.checked ? 'granted' : 'denied',
                 ad_storage: marketingConsentToggle.checked ? 'granted' : 'denied',
-                // functionality_storage, personalization_storage, security_storage are always granted by default
                 functionality_storage: 'granted',
                 personalization_storage: 'granted',
                 security_storage: 'granted'
@@ -555,85 +499,105 @@
         // Close the entire cookie consent banner
         function closeCookieConsentBanner() {
             consentBanner.classList.remove('active');
-            cookieSettings.classList.remove('active'); // Also hide settings if open
+            cookieSettings.classList.remove('active');
         }
 
         // Load consent preferences when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', loadConsentPreferences);
 
-        // --- Existing JavaScript Logic ---
+        // --- Contact Sales Modal Logic ---
+        function openContactSalesModal() {
+            const modal = document.getElementById('contactSalesModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeContactSalesModal() {
+            const modal = document.getElementById('contactSalesModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                // Reset form and messages
+                const form = document.getElementById('contactSalesForm');
+                const successMessage = document.getElementById('contactSuccessMessage');
+                const errorMessage = document.getElementById('contactErrorMessage');
+                
+                if (form) form.reset();
+                if (successMessage) successMessage.style.display = 'none';
+                if (errorMessage) errorMessage.style.display = 'none';
+            }
+        }
+
+        // Initialize all functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact Sales button
+            const contactSalesBtn = document.getElementById('pricingTeamCta');
+            if (contactSalesBtn) {
+                contactSalesBtn.addEventListener('click', openContactSalesModal);
+            }
+
+            // Close modal when clicking the close button
+            const closeModalBtn = document.querySelector('#contactSalesModal button');
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', closeContactSalesModal);
+            }
+
+            // Form submission handling
+            const contactForm = document.getElementById('contactSalesForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const successMessage = document.getElementById('contactSuccessMessage');
+                    const errorMessage = document.getElementById('contactErrorMessage');
+                    
+                    if (submitButton) submitButton.disabled = true;
+                    if (submitButton) submitButton.textContent = 'Sending...';
+                    
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: new FormData(contactForm),
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            contactForm.reset();
+                            if (successMessage) successMessage.style.display = 'block';
+                            if (errorMessage) errorMessage.style.display = 'none';
+                            setTimeout(() => {
+                                closeContactSalesModal();
+                            }, 2500);
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        if (errorMessage) errorMessage.style.display = 'block';
+                        if (successMessage) successMessage.style.display = 'none';
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Send Inquiry';
+                        }
+                    }
+                });
+            }
+        });
 
         // Mobile menu toggle functionality
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-        }
-
-        // Contact Sales Modal functionality
-        function openContactSalesModal() {
-            document.getElementById('contactSalesModal').classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-        }
-
-        function closeContactSalesModal() {
-            document.getElementById('contactSalesModal').classList.remove('active');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
-            // Reset form and messages when modal closes
-            document.getElementById('contactSalesForm').reset();
-            document.getElementById('contactSuccessMessage').style.display = 'none';
-            document.getElementById('contactErrorMessage').style.display = 'none';
-            const submitButton = document.getElementById('contactSalesForm').querySelector('button[type="submit"]');
-            submitButton.disabled = false;
-            submitButton.textContent = 'Send Inquiry';
-        }
-
-        // Event listener for the "Contact Sales" button
-        document.getElementById('pricingTeamCta').addEventListener('click', openContactSalesModal);
-
-        // Form submission handling for the Contact Sales modal
-        document.getElementById('contactSalesForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitButton = form.querySelector('button[type="submit"]');
-            const successMessage = document.getElementById('contactSuccessMessage');
-            const errorMessage = document.getElementById('contactErrorMessage');
-            
-            // Disable submit button and show loading state
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            try {
-                // IMPORTANT: Replace 'https://formspree.io/f/your_form_id' with your actual Formspree endpoint
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json' // Important for Formspree to return JSON
-                    }
-                });
-                
-                if (response.ok) {
-                    form.reset();
-                    successMessage.style.display = 'block';
-                    errorMessage.style.display = 'none';
-                    setTimeout(() => {
-                        closeContactSalesModal();
-                    }, 2500); // Give user time to see success message
-                } else {
-                    // Handle Formspree specific errors if needed, or a generic error
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send Inquiry';
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
             }
-        });
+        }
     </script>
 </body>
 </html>
