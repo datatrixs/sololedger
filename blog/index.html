@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verza Blog - Insights for Creators</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Verza Blog - Expert Insights for Creator Economy">
+    <meta name="description" content="Discover expert insights on creator contracts, finances, and business growth. Stay ahead with Verza's comprehensive guides on contract negotiation, invoicing, tax optimization, and IP protection.">
+    <meta name="keywords" content="creator economy, creator finance, contract negotiation, creator contracts, financial management, creator business, tax optimization, IP protection, creator insights">
+    <meta name="author" content="Verza Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tryverza.com/blog/">
+    <meta property="og:title" content="Verza Blog - Expert Insights for Creator Economy">
+    <meta property="og:description" content="Discover expert insights on creator contracts, finances, and business growth. Stay ahead with Verza's comprehensive guides on contract negotiation, invoicing, tax optimization, and IP protection.">
+    <meta property="og:image" content="https://placehold.co/1200x630/6366f1/ffffff?text=Verza+Blog">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.tryverza.com/blog/">
+    <meta property="twitter:title" content="Verza Blog - Expert Insights for Creator Economy">
+    <meta property="twitter:description" content="Discover expert insights on creator contracts, finances, and business growth. Stay ahead with Verza's comprehensive guides on contract negotiation, invoicing, tax optimization, and IP protection.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/6366f1/ffffff?text=Verza+Blog">
+    
+    <!-- Structured Data for Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Verza Blog",
+        "description": "Expert insights and guides for creators on contracts, finances, and business growth.",
+        "url": "https://www.tryverza.com/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Verza",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.tryverza.com/logo.png"
+            }
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Decoding Creator Contracts: What to Watch For",
+                "datePublished": "2025-05-29T00:00:00+00:00",
+                "author": {
+                    "@type": "Person",
+                    "name": "Serge Amouzou"
+                },
+                "url": "https://www.tryverza.com/blog/decoding-creator-contract.html"
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Streamline Your Income: Master Invoicing & Payments",
+                "datePublished": "2025-05-27T00:00:00+00:00",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Verza Team"
+                },
+                "url": "https://www.tryverza.com/blog/"
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Tax Smart for Creators: Don't Leave Money on the Table",
+                "datePublished": "2025-05-25T00:00:00+00:00",
+                "author": {
+                    "@type": "Person",
+                    "name": "Financial Expert"
+                },
+                "url": "https://www.tryverza.com/blog/"
+            }
+        ]
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-black text-white">
+    <div class="min-h-screen flex flex-col">
+        <header class="px-6 py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
+            <a href="/" class="text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition">Verza</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="../index.html#features" class="text-gray-300 hover:text-white transition">Features</a>
+                <a href="../index.html#how-it-works" class="text-gray-300 hover:text-white transition">How it Works</a>
+                <a href="../index.html#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
+                <a href="../index.html#about" class="text-gray-300 hover:text-white transition">About Us</a>
+                <a href="index.html" class="text-white font-semibold border-b-2 border-indigo-500 px-0 py-0">Blog</a> 
+            </nav>
+            <a id="headerCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                Get Started Free
+            </a>
+            <div class="md:hidden hamburger" onclick="toggleMobileMenu()">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </div>
+        </header>
+
+        <div id="mobileMenu" class="mobile-nav md:hidden">
+            <button class="absolute top-6 right-6 text-white text-3xl" onclick="toggleMobileMenu()">
+                &times;
+            </button>
+            <a href="../index.html#features" class="block py-4" onclick="toggleMobileMenu()">Features</a>
+            <a href="../index.html#how-it-works" class="block py-4" onclick="toggleMobileMenu()">How it Works</a>
+            <a href="../index.html#pricing" class="block py-4" onclick="toggleMobileMenu()">Pricing</a>
+            <a href="../index.html#about" class="block py-4" onclick="toggleMobileMenu()">About Us</a>
+            <a href="index.html" class="block py-4 text-indigo-400" onclick="toggleMobileMenu()">Blog</a> 
+            <a id="mobileCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition mt-8">
+                Get Started Free
+            </a>
+        </div>
+
+        <main class="flex-grow">
+            <section class="gradient-bg py-24 px-4">
+                <div class="max-w-6xl mx-auto text-center relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight">
+                        <span class="gradient-text">Verza Insights</span>: Empowering Your Creator Journey
+                    </h2>
+                    <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-300">
+                        Stay ahead with expert advice on contracts, finances, and growing your creative business.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <article class="feature-card p-6 rounded-xl flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
+                            <img src="https://placehold.co/600x400/6366f1/ffffff?text=Contract+Wisdom" alt="Contract negotiation illustration" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Decoding Creator Contracts: What to Watch For</h3>
+                            <p class="text-gray-400 text-sm mb-3">
+                                <time datetime="2025-05-29">May 29, 2025</time> | By Serge Amouzou
+                            </p>
+                            <p class="text-gray-400 text-base flex-grow mb-4">
+                                Learn how Verza's AI flags redlines, hidden clauses, and translates legalese into plain English, empowering you to negotiate confidently.
+                            </p>
+                            <a href="decoding-creator-contract.html" class="text-indigo-400 font-medium hover:text-white transition self-start">Read More &rarr;</a>
+                        </article>
+
+                        <article class="feature-card p-6 rounded-xl flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
+                            <img src="https://placehold.co/600x400/ec4899/ffffff?text=Invoice+Flow" alt="Invoice and payment flow illustration" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Streamline Your Income: Master Invoicing & Payments</h3>
+                            <p class="text-gray-400 text-sm mb-3">
+                                <time datetime="2025-05-27">May 27, 2025</time> | By Verza Team
+                            </p>
+                            <p class="text-gray-400 text-base flex-grow mb-4">
+                                Discover how automated invoicing, payment tracking, and reminders can eliminate late payments and boost your cash flow.
+                            </p>
+                            <a href="#" class="text-indigo-400 font-medium hover:text-white transition self-start">Read More &rarr;</a>
+                        </article>
+
+                        <article class="feature-card p-6 rounded-xl flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
+                            <img src="https://placehold.co/600x400/9963f1/ffffff?text=Tax+Savings" alt="Tax savings illustration" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Tax Smart for Creators: Don't Leave Money on the Table</h3>
+                            <p class="text-gray-400 text-sm mb-3">
+                                <time datetime="2025-05-25">May 25, 2025</time> | By Financial Expert
+                            </p>
+                            <p class="text-gray-400 text-base flex-grow mb-4">
+                                Unpack the benefits of S-Corps, automated tax estimates, and expense tracking to maximize your deductions and savings.
+                            </p>
+                            <a href="#" class="text-indigo-400 font-medium hover:text-white transition self-start">Read More &rarr;</a>
+                        </article>
+
+                        <article class="feature-card p-6 rounded-xl flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
+                            <img src="https://placehold.co/600x400/f97316/ffffff?text=IP+Rights" alt="Intellectual Property Rights illustration" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Protecting Your IP: A Creator's Essential Guide</h3>
+                            <p class="text-gray-400 text-sm mb-3">
+                                <time datetime="2025-05-22">May 22, 2025</time> | By Legal Contributor
+                            </p>
+                            <p class="text-gray-400 text-base flex-grow mb-4">
+                                Understand intellectual property rights in your contracts and how Verza helps safeguard your creative work.
+                            </p>
+                            <a href="#" class="text-indigo-400 font-medium hover:text-white transition self-start">Read More &rarr;</a>
+                        </article>
+
+                        <article class="feature-card p-6 rounded-xl flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
+                            <img src="https://placehold.co/600x400/0ea5e9/ffffff?text=Cashflow+Tips" alt="Cashflow management illustration" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold mb-2">Navigating Irregular Income: Cashflow Strategies for Creators</h3>
+                            <p class="text-gray-400 text-sm mb-3">
+                                <time datetime="2025-05-19">May 19, 2025</time> | By Verza Team
+                            </p>
+                            <p class="text-gray-400 text-base flex-grow mb-4">
+                                Tips and tools to smooth out your income, manage expenses, and build financial stability in the creator economy.
+                            </p>
+                            <a href="#" class="text-indigo-400 font-medium hover:text-white transition self-start">Read More &rarr;</a>
+                        </article>
+
+                        <article class="feature-card p-6 rounded-xl flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
+                            <img src="https://placehold.co/600x400/a855f7/ffffff?text=Future+Fintech" alt="Future of fintech illustration" class="w-full h-48 object-cover rounded-md mb-4">
+                            <h3 class="text-xl font-semibold mb-2">The Future of Creator Fintech: Beyond Basic Banking</h3>
+                            <p class="text-gray-400 text-sm mb-3">
+                                <time datetime="2025-05-15">May 15, 2025</time> | By Industry Analyst
+                            </p>
+                            <p class="text-gray-400 text-base flex-grow mb-4">
+                                Explore how integrated financial operating systems like Verza are shaping the next generation of creator finance.
+                            </p>
+                            <a href="#" class="text-indigo-400 font-medium hover:text-white transition self-start">Read More &rarr;</a>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 px-4 cta-gradient">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Control of Your Creator Finances?</h3>
+                    <p class="text-gray-300 mb-8 text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
+                    <a id="finalCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition">
+                        Get Started Free Now
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-black border-t border-gray-800 py-12 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 gradient-text">Verza</h4>
+                        <p class="text-gray-400 text-sm">Empowering creators with AI-powered financial management, from contract to banking.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Product</h5>
+                        <ul class="space-y-2">
+                            <li><a href="../index.html#features" class="text-gray-400 hover:text-white transition text-sm">Features</a></li>
+                            <li><a href="../index.html#how-it-works" class="text-gray-400 hover:text-white transition text-sm">How it Works</a></li>
+                                <li><a href="../index.html#pricing" class="text-gray-400 hover:text-white transition text-sm">Pricing</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold mb-4">Company</h5>
+                            <ul class="space-y-2">
+                                <li><a href="../index.html#about" class="text-gray-400 hover:text-white transition text-sm">About Us</a></li>
+                                <li><a href="index.html" class="text-white hover:text-white transition text-sm font-semibold">Blog</a></li> 
+                                <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Careers (Coming Soon)</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Legal</h5>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                    &copy; 2025 Verza, Inc. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

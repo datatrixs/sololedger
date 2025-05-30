@@ -26,13 +26,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verza: AI Financial Agent for Creators - Simplify Contracts & Payments</title>
-    <meta name="description" content="Verza is an AI-powered financial agent built for creators. Understand contracts, track income, and manage invoices effortlessly. Sign up for free!">
-    <meta name="keywords" content="creators, finance, AI, contracts, payments, invoices, income tracking, financial agent, automation">
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Verza: AI Financial Agent for Creators - Simplify Contracts & Payments">
+    <meta name="description" content="Verza is an AI-powered financial agent built for creators. Understand contracts, track income, and manage invoices effortlessly. Get paid faster and focus on creating.">
+    <meta name="keywords" content="creator finance, AI financial agent, contract analysis, creator contracts, payment tracking, invoice management, creator economy, financial automation, creator tools">
+    <meta name="author" content="Verza">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Verza: AI Financial Agent for Creators">
-    <meta property="og:description" content="Verza is an AI-powered financial agent built for creators. Understand contracts, track income, and manage invoices effortlessly. Sign up for free!">
-    <meta property="og:url" content="https://tryverza.com/">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tryverza.com/">
+    <meta property="og:title" content="Verza: AI Financial Agent for Creators">
+    <meta property="og:description" content="Verza is an AI-powered financial agent built for creators. Understand contracts, track income, and manage invoices effortlessly. Get paid faster and focus on creating.">
+    <meta property="og:image" content="https://www.tryverza.com/og-image.jpg">
+    <meta property="og:site_name" content="Verza">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.tryverza.com/">
+    <meta property="twitter:title" content="Verza: AI Financial Agent for Creators">
+    <meta property="twitter:description" content="Verza is an AI-powered financial agent built for creators. Understand contracts, track income, and manage invoices effortlessly. Get paid faster and focus on creating.">
+    <meta property="twitter:image" content="https://www.tryverza.com/twitter-image.jpg">
+    
+    <!-- Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Verza",
+        "url": "https://www.tryverza.com",
+        "logo": "https://www.tryverza.com/logo.png",
+        "description": "AI-powered financial agent built for creators to understand contracts, track income, and manage invoices effortlessly.",
+        "sameAs": [
+            "https://twitter.com/tryverza",
+            "https://linkedin.com/company/tryverza",
+            "https://instagram.com/tryverza"
+        ]
+    }
+    </script>
+    
+    <!-- Structured Data for Software Application -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Verza",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "10",
+            "priceCurrency": "USD"
+        },
+        "description": "AI-powered financial agent for creators to manage contracts, track income, and handle invoices.",
+        "featureList": [
+            "AI Contract Analysis",
+            "Negotiation Suggestions",
+            "Automated Income Tracking",
+            "Smart Invoicing & Payments",
+            "Financial Insights Dashboard",
+            "Secure Data Management"
+        ]
+    }
+    </script>
+    
+    <!-- Structured Data for BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.tryverza.com"
+        }]
+    }
+    </script>
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,12 +117,13 @@
 <body class="bg-black text-white">
     <div class="min-h-screen flex flex-col">
         <header class="px-6 py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
-            <h1 class="text-2xl font-bold tracking-tight gradient-text">Verza</h1>
+            <a href="/" class="text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition">Verza</a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#features" class="text-gray-300 hover:text-white transition">Features</a>
                 <a href="#how-it-works" class="text-gray-300 hover:text-white transition">How it Works</a>
                 <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
                 <a href="#about" class="text-gray-300 hover:text-white transition">About Us</a>
+                <a href="blog/index.html" class="text-gray-300 hover:text-white transition">Blog</a> 
             </nav>
             <a id="headerCta" href="https://app.tryverza.com/login?utm_source=website&utm_medium=button&utm_campaign=homepage_signup" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
                 Get Started Free
@@ -388,7 +462,7 @@
                         <h5 class="font-semibold mb-4">Company</h5>
                         <ul class="space-y-2">
                             <li><a href="#about" class="text-gray-400 hover:text-white transition text-sm">About Us</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Blog (Coming Soon)</a></li>
+                            <li><a href="blog/index.html" class="text-gray-400 hover:text-white transition text-sm">Blog</a></li>
                             <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Careers (Coming Soon)</a></li>
                         </ul>
                     </div>
