@@ -313,7 +313,7 @@ footer::before {
 
 .form-input + label.floating {
     transform: translateY(-1.5rem) scale(0.85);
-    color: var(--primary);
+    color: var(--text);
 }
 
 /* Gradient Text Effect */

@@ -122,13 +122,13 @@
             <nav class="hidden md:flex space-x-8">
                 <a href="#features" class="text-gray-300 hover:text-white transition glitch-link" data-text="Features">Features</a>
                 <a href="#how-it-works" class="text-gray-300 hover:text-white transition glitch-link" data-text="How it Works">How it Works</a>
-                <a href="#pricing" class="text-gray-300 hover:text-white transition glitch-link" data-text="Pricing">Pricing</a>
+                <!-- <a href="#pricing" class="text-gray-300 hover:text-white transition glitch-link" data-text="Pricing">Pricing</a> -->
                 <a href="#about" class="text-gray-300 hover:text-white transition glitch-link" data-text="About Us">About Us</a>
                 <a href="blog/index.html" class="text-gray-300 hover:text-white transition glitch-link" data-text="Blog">Blog</a> 
             </nav>
-            <a href="https://app.tryverza.com/login" target="_blank" class="hidden md:inline-block bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
-                Get Started Free
-            </a>
+            <button onclick="openContactSalesModal()" class="hidden md:inline-block bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                Join Waitlist
+            </button>
             <div class="md:hidden hamburger" onclick="toggleMobileMenu()">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -144,14 +144,14 @@
                 <div class="flex-grow pt-16 px-4">
                     <a href="#features" class="block py-3 text-lg glitch-link" data-text="Features" onclick="toggleMobileMenu()">Features</a>
                     <a href="#how-it-works" class="block py-3 text-lg glitch-link" data-text="How it Works" onclick="toggleMobileMenu()">How it Works</a>
-                    <a href="#pricing" class="block py-3 text-lg glitch-link" data-text="Pricing" onclick="toggleMobileMenu()">Pricing</a>
+                    <!-- <a href="#pricing" class="block py-3 text-lg glitch-link" data-text="Pricing" onclick="toggleMobileMenu()">Pricing</a> -->
                     <a href="#about" class="block py-3 text-lg glitch-link" data-text="About Us" onclick="toggleMobileMenu()">About Us</a>
                     <a href="blog/index.html" class="block py-3 text-lg glitch-link" data-text="Blog" onclick="toggleMobileMenu()">Blog</a>
                 </div>
                 <div class="p-4 border-t border-gray-800">
-                    <a href="https://app.tryverza.com/login" target="_blank" class="block w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition text-center">
-                        Get Started Free
-                    </a>
+                    <button onclick="openContactSalesModal()" class="block w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition text-center">
+                        Join Waitlist
+                    </button>
                 </div>
             </div>
         </div>
@@ -166,9 +166,9 @@
                         Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, track your deals, and manage your finances, ensuring you get paid and can focus on creating.
                     </p>
                     <div class="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://app.tryverza.com/login" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
-                            Get Started Free
-                        </a>
+                        <button onclick="openContactSalesModal()" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
+                            Join Waitlist
+                        </button>
                         <a href="#how-it-works" class="w-full sm:w-auto gradient-border bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-gray-900 transition flex items-center justify-center">
                             <i class="fas fa-play-circle mr-2"></i> How it Works
                         </a>
@@ -251,7 +251,7 @@
                 </div>
             </section>
 
-            <section id="pricing" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <!-- <section id="pricing" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-6xl mx-auto text-center">
                     <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16">Simple Pricing for Every <span class="gradient-text" data-text="Creator">Creator</span></h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -316,7 +316,7 @@
                         </ul>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <section id="about" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
                 <div class="max-w-4xl mx-auto text-center">
@@ -334,9 +334,9 @@
                 <div class="max-w-4xl mx-auto px-4 text-center">
                     <h3 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Ready to Take Control of Your Creator Finances?</h3>
                     <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
-                    <a href="https://app.tryverza.com/login" target="_blank" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
-                        Get Started Free Now
-                    </a>
+                    <button onclick="openContactSalesModal()" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
+                        Join Waitlist Now
+                    </button>
                 </div>
             </section>
         </main>
@@ -344,7 +344,7 @@
         <div id="contactSalesModal" class="modal" style="display: none;">
             <div class="modal-content glass-effect">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold gradient-text" data-text="Contact Sales">Contact Sales</h3>
+                    <h3 class="text-2xl font-bold gradient-text" data-text="Join Waitlist">Join Waitlist</h3>
                     <button onclick="closeContactSalesModal()" class="text-gray-400 hover:text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -366,14 +366,18 @@
                             <label for="company" class="absolute left-4 top-3 text-gray-400 transition-all duration-300 pointer-events-none">Company/Agency Name (if applicable)</label>
                         </div>
                         <div class="relative">
-                            <select name="inquiry_type" id="inquiry_type" class="form-input glass-effect w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-300 appearance-none text-white" required>
-                                <option value="" disabled selected>What is your inquiry about?</option>
-                                <option value="team_pricing">Team Pricing</option>
-                                <option value="partnership">Partnership Opportunities</option>
-                                <option value="custom_solution">Custom Solution</option>
+                            <select name="creator_type" id="creator_type" class="form-input glass-effect w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-300 appearance-none text-white" required>
+                                <option value="" disabled selected>What type of creator are you?</option>
+                                <option value="content_creator">Content Creator (YouTube, TikTok, etc.)</option>
+                                <option value="podcaster">Podcaster</option>
+                                <option value="streamer">Streamer</option>
+                                <option value="writer">Writer/Blogger</option>
+                                <option value="artist">Artist/Designer</option>
+                                <option value="musician">Musician</option>
+                                <option value="educator">Educator/Course Creator</option>
                                 <option value="other">Other</option>
                             </select>
-                            <label for="inquiry_type" class="absolute left-4 top-3 text-gray-400 transition-all duration-300 pointer-events-none">What is your inquiry about?</label>
+                            <label for="creator_type" class="absolute left-4 top-3 text-gray-400 transition-all duration-300 pointer-events-none">What type of creator are you?</label>
                             <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -390,7 +394,7 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            Thank you for your inquiry! We'll be in touch soon.
+                            Thank you for your interest in Verza! We'll be in touch soon.
                         </div>
                     </div>
                     <div id="contactErrorMessage" class="hidden p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
@@ -406,7 +410,7 @@
                             <svg class="w-5 h-5 mr-2 hidden" id="submitSpinner" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                             </svg>
-                            <span id="submitText">Send Inquiry</span>
+                            <span id="submitText">Join Waitlist</span>
                         </span>
                     </button>
                 </form>
@@ -425,7 +429,7 @@
                         <ul class="space-y-2">
                             <li><a href="#features" class="text-gray-400 hover:text-white transition text-sm">Features</a></li>
                             <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition text-sm">How it Works</a></li>
-                            <li><a href="#pricing" class="text-gray-400 hover:text-white transition text-sm">Pricing</a></li>
+                            <!-- <li><a href="#pricing" class="text-gray-400 hover:text-white transition text-sm">Pricing</a></li> -->
                         </ul>
                     </div>
                     <div>
@@ -560,7 +564,7 @@
             } finally {
                 submitButton.disabled = false;
                 submitSpinner.classList.add('hidden');
-                submitText.textContent = 'Send Inquiry';
+                submitText.textContent = 'Join Waitlist';
             }
         }
 
