@@ -5,50 +5,6 @@ function toggleMobileMenu() {
     document.getElementById('mobileMenu').style.display = document.getElementById('mobileMenu').classList.contains('active') ? 'block' : 'none';
 }
 
-// Cookie consent functions
-function updateGtagConsent(ad_storage_status, analytics_storage_status) {
-    gtag('consent', 'update', {
-        'ad_storage': ad_storage_status,
-        'analytics_storage': analytics_storage_status,
-        'ad_user_data': ad_storage_status,
-        'ad_personalization': ad_storage_status,
-    });
-}
-
-function saveConsentPreferences() {
-    const preferences = {
-        analytics_storage: document.getElementById('analyticsConsent').checked ? 'granted' : 'denied',
-        ad_storage: document.getElementById('marketingConsent').checked ? 'granted' : 'denied',
-        functionality_storage: 'granted',
-        personalization_storage: 'granted',
-        security_storage: 'granted'
-    };
-    localStorage.setItem('verza_cookie_consent', JSON.stringify(preferences));
-    updateGtagConsent(preferences.ad_storage, preferences.analytics_storage);
-    closeCookieConsentBanner();
-}
-
-function acceptAllCookies() {
-    document.getElementById('analyticsConsent').checked = true;
-    document.getElementById('marketingConsent').checked = true;
-    saveConsentPreferences();
-}
-
-function rejectAllCookies() {
-    document.getElementById('analyticsConsent').checked = false;
-    document.getElementById('marketingConsent').checked = false;
-    saveConsentPreferences();
-}
-
-function toggleCookieSettings() {
-    document.getElementById('cookieSettings').classList.toggle('active');
-}
-
-function closeCookieConsentBanner() {
-    document.getElementById('cookieConsentBanner').classList.remove('active');
-    document.getElementById('cookieSettings').classList.remove('active');
-}
-
 // Contact sales modal functions
 function openContactSalesModal() {
     document.getElementById('contactSalesModal').style.display = 'flex';
