@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WHYBWFWL7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Set default consent states to 'denied' before any other gtag commands.
+        // This ensures no data is collected until user grants consent.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'functionality_storage': 'granted', // Often considered essential for basic site functionality
+            'personalization_storage': 'granted', // Often considered essential for basic site functionality
+            'security_storage': 'granted' // Security-related cookies should typically always be granted
+        });
+
+        // Your existing gtag config for Google Analytics 4 (GA4)
+        gtag('js', new Date());
+        gtag('config', 'G-9WHYBWFWL7');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found - Verza</title>
+    
+    <meta name="title" content="Page Not Found - Verza">
+    <meta name="description" content="The page you are looking for could not be found. Return to Verza's AI-powered financial management platform for creators.">
+    <meta name="keywords" content="404, page not found, Verza, creator finance">
+    <meta name="author" content="Verza">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="language" content="English">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tryverza.com/404.html">
+    <meta property="og:title" content="Page Not Found - Verza">
+    <meta property="og:description" content="The page you are looking for could not be found. Return to Verza's AI-powered financial management platform for creators.">
+    <meta property="og:image" content="https://www.tryverza.com/og-image.jpg">
+    <meta property="og:site_name" content="Verza">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.tryverza.com/404.html">
+    <meta property="twitter:title" content="Page Not Found - Verza">
+    <meta property="twitter:description" content="The page you are looking for could not be found. Return to Verza's AI-powered financial management platform for creators.">
+    <meta property="twitter:image" content="https://www.tryverza.com/twitter-image.jpg">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body class="bg-black text-white">
+    <div class="min-h-screen flex flex-col">
+        <header class="px-4 py-4 md:px-6 md:py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
+            <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition" data-text="Verza">Verza</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/#features" class="text-gray-300 hover:text-white transition glitch-link" data-text="Features">Features</a>
+                <a href="/#how-it-works" class="text-gray-300 hover:text-white transition glitch-link" data-text="How it Works">How it Works</a>
+                <a href="/#about" class="text-gray-300 hover:text-white transition glitch-link" data-text="About Us">About Us</a>
+                <a href="blog/index.html" class="text-gray-300 hover:text-white transition glitch-link" data-text="Blog">Blog</a> 
+            </nav>
+            <a href="https://app.tryverza.com/login" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                Get Started Free
+            </a>
+            <div class="md:hidden hamburger" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </div>
+        </header>
+
+        <div id="mobileMenu" class="mobile-nav md:hidden">
+            <button class="absolute top-4 right-4 text-white text-3xl" onclick="toggleMobileMenu()">
+                &times;
+            </button>
+            <div class="flex flex-col h-full">
+                <div class="flex-grow pt-16 px-4">
+                    <a href="/#features" class="block py-3 text-lg glitch-link" data-text="Features" onclick="toggleMobileMenu()">Features</a>
+                    <a href="/#how-it-works" class="block py-3 text-lg glitch-link" data-text="How it Works" onclick="toggleMobileMenu()">How it Works</a>
+                    <a href="/#about" class="block py-3 text-lg glitch-link" data-text="About Us" onclick="toggleMobileMenu()">About Us</a>
+                    <a href="blog/index.html" class="block py-3 text-lg glitch-link" data-text="Blog" onclick="toggleMobileMenu()">Blog</a>
+                </div>
+                <div class="p-4 border-t border-gray-800">
+                    <a href="https://app.tryverza.com/login" target="_blank" class="block w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition text-center">
+                        Get Started Free
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <main class="flex-grow flex items-center justify-center">
+            <section class="py-16 md:py-24 px-4 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <!-- 404 Illustration -->
+                    <div class="mb-12">
+                        <div class="relative">
+                            <div class="w-48 h-48 mx-auto mb-8 relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
+                                <div class="relative w-full h-full flex items-center justify-center">
+                                    <i class="fas fa-search text-6xl text-indigo-400 opacity-50"></i>
+                                </div>
+                            </div>
+                            <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center animate-bounce">
+                                <span class="text-white font-bold text-2xl">?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 404 Content -->
+                    <div class="glass-effect p-8 md:p-12 rounded-xl mb-8">
+                        <h1 class="text-6xl md:text-8xl font-bold mb-6 gradient-text" data-text="404">404</h1>
+                        <h2 class="text-2xl md:text-4xl font-bold mb-6 text-white">
+                            Page Not Found
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                            Oops! The page you're looking for seems to have wandered off into the digital void. 
+                            Don't worry, even the best creators sometimes get lost in the creative process.
+                        </p>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <a href="index.html" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition flex items-center justify-center">
+                                <i class="fas fa-home mr-2"></i>
+                                Back to Home
+                            </a>
+                            <a href="/#features" class="w-full sm:w-auto gradient-border bg-black text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-900 transition flex items-center justify-center">
+                                <i class="fas fa-rocket mr-2"></i>
+                                Explore Features
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Helpful Links -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                        <div class="glass-effect p-6 rounded-xl text-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-file-contract text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Contract Analysis</h3>
+                            <p class="text-gray-400 text-sm">Upload and analyze your contracts with AI</p>
+                        </div>
+                        <div class="glass-effect p-6 rounded-xl text-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Financial Insights</h3>
+                            <p class="text-gray-400 text-sm">Track your income and manage finances</p>
+                        </div>
+                        <div class="glass-effect p-6 rounded-xl text-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-file-invoice-dollar text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Smart Invoicing</h3>
+                            <p class="text-gray-400 text-sm">Create and track invoices automatically</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-black border-t border-gray-800 py-8 md:py-12 px-4 md:px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 gradient-text" data-text="Verza">Verza</h4>
+                        <p class="text-gray-400 text-sm">Empowering creators with AI-powered financial management, from contract to banking.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Product</h5>
+                        <ul class="space-y-2">
+                            <li><a href="/#features" class="text-gray-400 hover:text-white transition text-sm">Features</a></li>
+                            <li><a href="/#how-it-works" class="text-gray-400 hover:text-white transition text-sm">How it Works</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Company</h5>
+                        <ul class="space-y-2">
+                            <li><a href="/#about" class="text-gray-400 hover:text-white transition text-sm">About Us</a></li>
+                            <li><a href="blog/index.html" class="text-gray-400 hover:text-white transition text-sm">Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Careers (Coming Soon)</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4">Legal</h5>
+                        <ul class="space-y-2">
+                            <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition text-sm">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition text-sm">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                    &copy; 2025 Verza Technologies, Inc. All rights reserved.
+                </div>
+            </div>
+        </footer>
+
+        <!-- GDPR Cookie Consent -->
+        <div id="cookieConsent" class="cookie-consent">
+            <div class="cookie-consent-content">
+                <div class="cookie-consent-text">
+                    <p>We use cookies to enhance your experience, analyze site traffic, and for marketing purposes. By clicking "Accept All", you consent to our use of cookies. <a href="#" onclick="showCookieSettings()">Customize Settings</a></p>
+                </div>
+                <div class="cookie-consent-buttons">
+                    <button onclick="acceptAllCookies()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition">
+                        Accept All
+                    </button>
+                    <button onclick="acceptEssentialCookies()" class="border border-gray-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition">
+                        Essential Only
+                    </button>
+                </div>
+            </div>
+            <div id="cookieSettings" class="cookie-settings">
+                <div class="cookie-option">
+                    <div class="cookie-option-label">
+                        <span class="cookie-option-title">Essential Cookies</span>
+                        <span class="cookie-option-description">Required for the website to function properly. Cannot be disabled.</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-option">
+                    <div class="cookie-option-label">
+                        <span class="cookie-option-title">Analytics Cookies</span>
+                        <span class="cookie-option-description">Help us understand how visitors interact with our website.</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="analyticsCookies">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-option">
+                    <div class="cookie-option-label">
+                        <span class="cookie-option-title">Marketing Cookies</span>
+                        <span class="cookie-option-description">Used to track visitors across websites for marketing purposes.</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="marketingCookies">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="mt-4 flex justify-end gap-3">
+                    <button onclick="saveCookiePreferences()" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition">
+                        Save Preferences
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent functions
+        function showCookieConsent() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieConsent').classList.add('active');
+            }
+        }
+
+        function hideCookieConsent() {
+            document.getElementById('cookieConsent').classList.remove('active');
+        }
+
+        function showCookieSettings() {
+            document.getElementById('cookieSettings').classList.add('active');
+        }
+
+        function acceptAllCookies() {
+            localStorage.setItem('cookieConsent', 'all');
+            localStorage.setItem('analyticsCookies', 'true');
+            localStorage.setItem('marketingCookies', 'true');
+            hideCookieConsent();
+            initializeCookies();
+        }
+
+        function acceptEssentialCookies() {
+            localStorage.setItem('cookieConsent', 'essential');
+            localStorage.setItem('analyticsCookies', 'false');
+            localStorage.setItem('marketingCookies', 'false');
+            hideCookieConsent();
+            initializeCookies();
+        }
+
+        function saveCookiePreferences() {
+            const analytics = document.getElementById('analyticsCookies').checked;
+            const marketing = document.getElementById('marketingCookies').checked;
+            localStorage.setItem('cookieConsent', 'custom');
+            localStorage.setItem('analyticsCookies', analytics);
+            localStorage.setItem('marketingCookies', marketing);
+            hideCookieConsent();
+            initializeCookies();
+        }
+
+        function initializeCookies() {
+            const analytics = localStorage.getItem('analyticsCookies') === 'true';
+            const marketing = localStorage.getItem('marketingCookies') === 'true';
+
+            // Update Google Analytics consent
+            gtag('consent', 'update', {
+                'analytics_storage': analytics ? 'granted' : 'denied',
+                'ad_storage': marketing ? 'granted' : 'denied',
+                'ad_user_data': marketing ? 'granted' : 'denied',
+                'ad_personalization': marketing ? 'granted' : 'denied',
+            });
+        }
+
+        // Show cookie consent on page load and set initial toggle states
+        document.addEventListener('DOMContentLoaded', function() {
+            showCookieConsent();
+            // Set initial states of cookie toggles
+            const analytics = localStorage.getItem('analyticsCookies') === 'true';
+            const marketing = localStorage.getItem('marketingCookies') === 'true';
+            document.getElementById('analyticsCookies').checked = analytics;
+            document.getElementById('marketingCookies').checked = marketing;
+        });
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
