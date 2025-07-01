@@ -118,7 +118,7 @@
 <body class="bg-black text-white">
     <div class="min-h-screen flex flex-col">
         <header class="px-4 py-4 md:px-6 md:py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
-            <a href="/" class="text-xl md:text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition" data-text="Verza">Verza</a>
+            <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition" data-text="Verza">Verza</a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#features" class="text-gray-300 hover:text-white transition glitch-link" data-text="Features">Features</a>
                 <a href="#how-it-works" class="text-gray-300 hover:text-white transition glitch-link" data-text="How it Works">How it Works</a>
@@ -164,26 +164,36 @@
 
         <main class="flex-grow">
             <section class="gradient-bg py-16 md:py-24 px-4">
-                <div class="max-w-6xl mx-auto text-center relative z-10">
-                    <h2 class="text-3xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight">
-                        Your AI Financial Agent:<br class="hidden md:block" /> From Deal to Deposit for <br /> <span class="gradient-text" data-text="Creators">Creators</span>
-                    </h2>
-                    <p class="mt-4 md:mt-6 text-base md:text-lg max-w-2xl mx-auto text-gray-300">
-                        Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, track your deals, and manage your finances, ensuring you get paid and can focus on creating.
-                    </p>
-                    <div class="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                        <!-- <button onclick="openContactSalesModal()" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
-                            Join Waitlist
-                        </button> -->
-                        <a href="https://app.tryverza.com/login" target="_blank" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
-                            Get Started Free
-                        </a>
-                        <a href="#how-it-works" class="w-full sm:w-auto gradient-border bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-gray-900 transition flex items-center justify-center">
-                            <i class="fas fa-play-circle mr-2"></i> How it Works
-                        </a>
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-16 relative z-10">
+                    <!-- Left: Text Content -->
+                    <div class="flex-1 flex flex-col justify-center items-start text-left mb-8 md:mb-0">
+                        <h2 class="text-3xl md:text-6xl font-bold leading-tight mb-6">
+                            Your AI Financial Agent: From Deal<br class="hidden md:block" />
+                            to Deposit for <br />
+                            <span class="gradient-text" data-text="Creators">Creators</span>
+                        </h2>
+                        <p class="mt-2 md:mt-4 text-base md:text-lg max-w-xl text-gray-300 mb-8">
+                            Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, track your deals, and manage your finances, ensuring you get paid and can focus on creating.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                            <a href="https://app.tryverza.com/login" target="_blank" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
+                                Get Started Free
+                            </a>
+                            <a href="#how-it-works" class="w-full sm:w-auto gradient-border bg-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-gray-900 transition flex items-center justify-center">
+                                <i class="fas fa-play-circle mr-2"></i> How it Works
+                            </a>
+                        </div>
                     </div>
-                    <div class="mt-8 md:mt-12 animate-float">
-                        <div style="position: relative; padding-bottom: 57.26405090137858%; height: 0;"><iframe src="https://www.loom.com/embed/f57d1b85fba84a1b8677e38615c056bf?sid=73e713bc-3ff7-48b3-80b8-024bf8d1ab3c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>                    </div>
+                    <!-- Right: TikTok-style Video -->
+                    <div class="flex-1 flex justify-center items-center">
+                        <div class="relative w-[260px] h-[462px] md:w-[320px] md:h-[568px] rounded-2xl overflow-hidden shadow-2xl border-4 border-black/40 bg-black">
+                            <video id="tiktokDemoVideo" class="w-80 h-100 object-cover" src="assets/verza-pain-point-and-solution-reel.mov" playsinline loop preload="metadata" poster="assets/tiktok-poster.png"></video>
+                            <button id="videoPlayPause" class="absolute bottom-4 right-4 bg-black/60 rounded-full p-3 text-white shadow-lg focus:outline-none" aria-label="Play/Pause">
+                                <svg id="playIcon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.518-3.759A1 1 0 007 8.06v7.882a1 1 0 001.234.97l6.518-1.757A1 1 0 0016 14.94V9.06a1 1 0 00-1.248-.892z"/></svg>
+                                <svg id="pauseIcon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -676,6 +686,35 @@
                 input.addEventListener('blur', () => handleInput(input));
                 input.addEventListener('input', () => handleInput(input));
             });
+        });
+
+        // TikTok-style video play/pause logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('tiktokDemoVideo');
+            const playPauseBtn = document.getElementById('videoPlayPause');
+            const playIcon = document.getElementById('playIcon');
+            const pauseIcon = document.getElementById('pauseIcon');
+            if (video && playPauseBtn) {
+                playPauseBtn.addEventListener('click', function() {
+                    if (video.paused) {
+                        video.play();
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                    } else {
+                        video.pause();
+                        playIcon.classList.remove('hidden');
+                        pauseIcon.classList.add('hidden');
+                    }
+                });
+                video.addEventListener('play', function() {
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                });
+                video.addEventListener('pause', function() {
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                });
+            }
         });
     </script>
 </body>
