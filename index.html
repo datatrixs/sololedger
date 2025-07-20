@@ -115,25 +115,26 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
-<body class="bg-black text-white">
+<body>
     <div class="min-h-screen flex flex-col">
-        <header class="px-4 py-4 md:px-6 md:py-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-lg bg-black sticky top-0 z-20">
+        <header class="px-4 py-4 md:px-6 md:py-6 flex justify-between items-center border-b border-gray-300 dark:border-gray-800 backdrop-blur-lg sticky top-0 z-20">
             <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tight gradient-text hover:opacity-90 transition" data-text="Verza">Verza</a>
             <nav class="hidden md:flex space-x-8">
-                <a href="#features" class="text-gray-300 hover:text-white transition glitch-link" data-text="Features">Features</a>
-                <a href="#how-it-works" class="text-gray-300 hover:text-white transition glitch-link" data-text="How it Works">How it Works</a>
-                <!-- <a href="#pricing" class="text-gray-300 hover:text-white transition glitch-link" data-text="Pricing">Pricing</a> -->
-                <a href="#about" class="text-gray-300 hover:text-white transition glitch-link" data-text="About Us">About Us</a>
-                <a href="blog/index.html" class="text-gray-300 hover:text-white transition glitch-link" data-text="Blog">Blog</a> 
+                <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition glitch-link" data-text="Features">Features</a>
+                <a href="#how-it-works" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition glitch-link" data-text="How it Works">How it Works</a>
+                <!-- <a href="#pricing" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition glitch-link" data-text="Pricing">Pricing</a> -->
+                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition glitch-link" data-text="About Us">About Us</a>
+                <a href="blog/index.html" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition glitch-link" data-text="Blog">Blog</a> 
             </nav>
             <!-- <button onclick="openContactSalesModal()" class="hidden md:inline-block bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
                 Join Waitlist
             </button> -->
+
             <a href="https://app.tryverza.com/login" target="_blank" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition">
                 Upload Contract
             </a>
             <div class="md:hidden hamburger" onclick="toggleMobileMenu()">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </div>
@@ -150,6 +151,7 @@
                     <!-- <a href="#pricing" class="block py-3 text-lg glitch-link" data-text="Pricing" onclick="toggleMobileMenu()">Pricing</a> -->
                     <a href="#about" class="block py-3 text-lg glitch-link" data-text="About Us" onclick="toggleMobileMenu()">About Us</a>
                     <a href="blog/index.html" class="block py-3 text-lg glitch-link" data-text="Blog" onclick="toggleMobileMenu()">Blog</a>
+
                 </div>
                 <div class="p-4 border-t border-gray-800">
                     <!-- <button onclick="openContactSalesModal()" class="block w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition text-center">
@@ -172,8 +174,8 @@
                             to Deposit for <br />
                             <span class="gradient-text" data-text="Creators">Creators</span>
                         </h2>
-                        <p class="mt-2 md:mt-4 text-base md:text-lg max-w-xl text-gray-300 mb-8">
-                            Tired of chasing payments and deciphering contracts? Verza uses AI to understand, negotiate, track your deals, and manage your finances, ensuring you get paid and can focus on creating.
+                        <p class="mt-2 md:mt-4 text-base md:text-lg max-w-xl text-gray-600 dark:text-gray-300 mb-8">
+                            Stop chasing payments. Verza uses AI to instantly invoice from your signed contracts, send to brands, and automate follow-ups. Get paid reliably and focus on your craft.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                             <a href="https://app.tryverza.com/login" target="_blank" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
@@ -197,7 +199,7 @@
                 </div>
             </section>
 
-            <section id="features" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <section id="features" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black">
                 <div class="max-w-6xl mx-auto">
                     <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16">Unlock Your Full Potential with <span class="gradient-text" data-text="Verza">Verza</span></h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -206,65 +208,65 @@
                                 <i class="fas fa-file-contract"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">AI Contract Analysis</h4>
-                            <p class="text-gray-400">Upload any contract to instantly flag redlines, hidden clauses, and key terms. Get clear, plain English translations of complex legalese.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Upload any contract to instantly flag redlines, hidden clauses, and key terms. Get clear, plain English translations of complex legalese.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Negotiation Suggestions</h4>
-                            <p class="text-gray-400">Receive AI-powered recommendations for better payment terms, exclusivity clauses, IP rights, and other critical contract elements.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Receive AI-powered recommendations for better payment terms, exclusivity clauses, IP rights, and other critical contract elements.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-money-bill-wave"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Automated Income Tracking</h4>
-                            <p class="text-gray-400">Seamlessly track all your income by scanning contracts and linking payment sources, giving you a real-time financial overview.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Seamlessly track all your income by scanning contracts and linking payment sources, giving you a real-time financial overview.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-file-invoice-dollar"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Smart Invoicing & Payments</h4>
-                            <p class="text-gray-400">Create professional invoices, send automated payment reminders, and track the status of all your outstanding payments.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Create professional invoices, send automated payment reminders, and track the status of all your outstanding payments.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Financial Insights Dashboard</h4>
-                            <p class="text-gray-400">Access real-time analytics, visualize your cash flow, and gain actionable insights to make informed business decisions.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Access real-time analytics, visualize your cash flow, and gain actionable insights to make informed business decisions.</p>
                         </div>
                         <div class="feature-card p-8 rounded-xl glass-effect">
                             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 text-white text-xl">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <h4 class="text-xl font-semibold mb-2">Secure Data Management</h4>
-                            <p class="text-gray-400">Your financial and contractual data is protected with industry-leading security protocols and encryption.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Your financial and contractual data is protected with industry-leading security protocols and encryption.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="how-it-works" class="py-16 md:py-24 px-4 bg-gradient-to-b from-black to-gray-900">
+            <section id="how-it-works" class="py-16 md:py-24 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900">
                 <div class="max-w-6xl mx-auto text-center">
                     <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16">How <span class="gradient-text" data-text="Verza">Verza</span> Simplifies Your Business</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                         <div class="step-card p-8 rounded-xl flex flex-col items-center glass-effect">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">1</div>
                             <h4 class="text-2xl font-semibold mb-3">Upload Your Deal</h4>
-                            <p class="text-gray-400">Simply upload or paste your contract text. Verza's AI instantly gets to work, analyzing every detail.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Simply upload or paste your contract text. Verza's AI instantly gets to work, analyzing every detail.</p>
                         </div>
                         <div class="step-card p-8 rounded-xl flex flex-col items-center glass-effect">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">2</div>
                             <h4 class="text-2xl font-semibold mb-3">Get Instant Insights</h4>
-                            <p class="text-gray-400">Receive clear explanations of legalese, flagged redlines, and smart suggestions for negotiation terms.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Receive clear explanations of legalese, flagged redlines, and smart suggestions for negotiation terms.</p>
                         </div>
                         <div class="step-card p-8 rounded-xl flex flex-col items-center glass-effect">
                             <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-bold">3</div>
                             <h4 class="text-2xl font-semibold mb-3">Manage & Grow</h4>
-                            <p class="text-gray-400">Track income, send invoices, and manage your funds all in one place, freeing you to create.</p>
+                            <p class="text-gray-600 dark:text-gray-400">Track income, send invoices, and manage your funds all in one place, freeing you to create.</p>
                         </div>
                     </div>
                 </div>
@@ -337,13 +339,13 @@
                 </div>
             </section> -->
 
-            <section id="about" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <section id="about" class="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black">
                 <div class="max-w-4xl mx-auto text-center">
                     <h3 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8">About <span class="gradient-text" data-text="Verza">Verza</span></h3>
-                    <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6 md:mb-8">
+                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6 md:mb-8">
                         At Verza, we believe creators deserve financial tools that are as innovative and dynamic as their work. Founded by a team passionate about empowering the self-employed, we built Verza to tackle the unique challenges creators face, from complex contracts to unpredictable income.
                     </p>
-                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                         Our mission is to simplify financial management, protect your income, and provide the clarity you need to focus on what you do best: creating. We're starting where the money begins—your deal—and expanding to become your essential financial operating system.
                     </p>
                 </div>
@@ -352,7 +354,7 @@
             <section class="py-16 md:py-24 gradient-bg">
                 <div class="max-w-4xl mx-auto px-4 text-center">
                     <h3 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Ready to Take Control of Your Creator Finances?</h3>
-                    <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 md:mb-8 text-base md:text-lg">Sign up today and experience the power of AI-driven financial management, from contract negotiation to tax preparation and banking.</p>
                     <!-- <button onclick="openContactSalesModal()" class="inline-block w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:opacity-90 transition text-center">
                         Join Waitlist Now
                     </button> -->
@@ -439,39 +441,39 @@
             </div>
         </div>
 
-        <footer class="bg-black border-t border-gray-800 py-8 md:py-12 px-4 md:px-6">
+        <footer class="bg-white dark:bg-black border-t border-gray-300 dark:border-gray-800 py-8 md:py-12 px-4 md:px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
                     <div>
                         <h4 class="text-xl font-bold mb-4 gradient-text" data-text="Verza">Verza</h4>
-                        <p class="text-gray-400 text-sm">Empowering creators with AI-powered financial management, from contract to banking.</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Empowering creators with AI-powered financial management, from contract to banking.</p>
                     </div>
                     <div>
                         <h5 class="font-semibold mb-4">Product</h5>
                         <ul class="space-y-2">
-                            <li><a href="#features" class="text-gray-400 hover:text-white transition text-sm">Features</a></li>
-                            <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition text-sm">How it Works</a></li>
-                            <!-- <li><a href="#pricing" class="text-gray-400 hover:text-white transition text-sm">Pricing</a></li> -->
+                            <li><a href="#features" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Features</a></li>
+                            <li><a href="#how-it-works" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">How it Works</a></li>
+                            <!-- <li><a href="#pricing" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Pricing</a></li> -->
                         </ul>
                     </div>
                     <div>
                         <h5 class="font-semibold mb-4">Company</h5>
                         <ul class="space-y-2">
-                            <li><a href="#about" class="text-gray-400 hover:text-white transition text-sm">About Us</a></li>
-                            <li><a href="blog/index.html" class="text-gray-400 hover:text-white transition text-sm">Blog</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Careers (Coming Soon)</a></li>
+                            <li><a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">About Us</a></li>
+                            <li><a href="blog/index.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Blog</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Careers (Coming Soon)</a></li>
                         </ul>
                     </div>
                     <div>
                         <h5 class="font-semibold mb-4">Legal</h5>
                         <ul class="space-y-2">
-                            <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition text-sm">Privacy Policy</a></li>
-                            <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition text-sm">Terms of Service</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm">Security</a></li>
+                            <li><a href="privacy-policy.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">Security</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-300 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400 text-sm">
             &copy; 2025 Verza Technologies, Inc. All rights reserved.
                 </div>
             </div>
@@ -688,8 +690,47 @@
             });
         });
 
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            updateThemeIcons(newTheme);
+        }
+
+        function updateThemeIcons(theme) {
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            const mobileSunIcon = document.getElementById('mobileSunIcon');
+            const mobileMoonIcon = document.getElementById('mobileMoonIcon');
+            
+            if (theme === 'dark') {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                mobileSunIcon.classList.add('hidden');
+                mobileMoonIcon.classList.remove('hidden');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                mobileSunIcon.classList.remove('hidden');
+                mobileMoonIcon.classList.add('hidden');
+            }
+        }
+
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcons(savedTheme);
+        }
+
         // TikTok-style video play/pause logic
         document.addEventListener('DOMContentLoaded', function() {
+            initializeTheme();
+            
             const video = document.getElementById('tiktokDemoVideo');
             const playPauseBtn = document.getElementById('videoPlayPause');
             const playIcon = document.getElementById('playIcon');

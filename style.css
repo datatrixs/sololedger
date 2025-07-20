@@ -3,9 +3,25 @@
     --primary: #FF3366;
     --secondary: #00FFB2;
     --accent: #FFD700;
+    --background: #FFFFFF;
+    --text: #1A1A1A;
+    --card-bg: #F8F9FA;
+    --border-color: #E5E7EB;
+    --gray-300: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-800: #374151;
+    --glitch-timing: 0.2s;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
     --background: #0A0A0A;
     --text: #FFFFFF;
-    --glitch-timing: 0.2s;
+    --card-bg: #1A1A1A;
+    --border-color: #374151;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-800: #1F2937;
 }
 
 body {
@@ -13,16 +29,22 @@ body {
     color: var(--text);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Experimental Header */
 header {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 51, 102, 0.2);
     position: relative;
     overflow: hidden;
     z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] header {
+    background: rgba(10, 10, 10, 0.8);
 }
 
 header::before {
@@ -92,8 +114,8 @@ nav a:hover::before {
 
 /* Experimental Cards */
 .feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
@@ -174,13 +196,18 @@ nav a:hover::before {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     opacity: 0;
     display: none;
     pointer-events: none;
-    transition: opacity 0.3s ease;}
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .mobile-nav {
+    background: rgba(10, 10, 10, 0.95);
+}
 
 .mobile-nav.active {
     opacity: 1;
