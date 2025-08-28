@@ -1,10 +1,16 @@
 /* Base Styles */
 :root {
-    --primary: #FF3366;
-    --secondary: #00FFB2;
-    --accent: #FFD700;
-    --background: #0A0A0A;
-    --text: #FFFFFF;
+    --primary: #6B37FF;
+    --secondary: #EE488E;
+    --accent: #22C55E;
+    --background: #120E19;
+    --text: #E2E8F0;
+    --gray-300: #94A3B8;
+    --gray-400: #9CA3AF;
+    --gray-800: #1F2937;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --error: #EF4444;
     --glitch-timing: 0.2s;
 }
 
@@ -17,9 +23,9 @@ body {
 
 /* Experimental Header */
 header {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(18, 14, 25, 0.8);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 51, 102, 0.2);
+    border-bottom: 1px solid rgba(107, 55, 255, 0.2);
     position: relative;
     overflow: hidden;
     z-index: 100;
@@ -71,8 +77,8 @@ nav a:hover::before {
 .gradient-bg {
     position: relative;
     background: linear-gradient(135deg, 
-        rgba(255, 51, 102, 0.1) 0%,
-        rgba(0, 255, 178, 0.1) 100%
+        rgba(107, 55, 255, 0.1) 0%,
+        rgba(238, 72, 142, 0.1) 100%
     );
     overflow: hidden;
 }
@@ -85,8 +91,8 @@ nav a:hover::before {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(255, 51, 102, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 255, 178, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 20%, rgba(107, 55, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(238, 72, 142, 0.1) 0%, transparent 50%);
     animation: pulse 10s ease-in-out infinite;
 }
 
@@ -538,12 +544,12 @@ input:disabled + .toggle-slider:before {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--primary), var(--secondary));
+    background: linear-gradient(#6B37FF, #EE488E);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(var(--secondary), var(--primary));
+    background: linear-gradient(#EE488E, #6B37FF);
 }
 
 /* Form Labels */
@@ -559,7 +565,7 @@ input:disabled + .toggle-slider:before {
 
 /* Gradient Text Effect */
 .gradient-text {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, #6B37FF, #EE488E);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -575,7 +581,7 @@ input:disabled + .toggle-slider:before {
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, #6B37FF, #EE488E);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
